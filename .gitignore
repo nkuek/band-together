@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -102,3 +103,8 @@ dist
 
 # TernJS port file
 .tern-port
+=======
+**/**/.DS_Store
+.env
+node_modules
+>>>>>>> af63401d8d80d923ad9e19d387b901666ac2783a
