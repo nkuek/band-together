@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
-const { asyncHandler } = require('./utils');
+const { asyncHandler, csrfProtection } = require('./utils');
 const { User } = require('../db/models/');
 const router = express.Router();
 
@@ -57,10 +57,27 @@ const userValidation = [
 
 router.post(
     '/',
+    csrfProtection,
+    userValidation,
     asyncHandler(async (req, res) => {
         const { username, email, password } = req.body;
-
+        const validationErrors = validationResult(req);
+        if(validationErrors.isEmpty()){
         const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await User.create({
+            username, email, hashedPassword
+        })
+            loginUser(req, res, user);
+            res.redirect('/');
+        } else{
+            const errors = validationErrors.array().map(error => error.msg);
+            res.render('register', {
+                title: 'Register',
+                user,
+                errors,
+                csrfToken: req.csrfToken()
+            });
+        }
     })
 );
 
