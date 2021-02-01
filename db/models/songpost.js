@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
     SongPost.associate = function (models) {
-        SongPost.belongsTo(models.User({ foreignKey: 'userId' }));
-        SongPost.hasMany(models.Notes({ foreignKey: 'songPostId' }));
+        SongPost.belongsTo(models.User, { foreignKey: 'userId' });
+        SongPost.hasMany(models.Note, { foreignKey: 'songPostId' });
     };
     return SongPost;
 };

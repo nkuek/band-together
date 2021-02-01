@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
     Note.associate = function (models) {
-        Note.belongsTo(models.SongPost({ foreignKey: 'songPostId' }));
-        Note.belongsTo(models.User({ foreignKey: 'userId' }));
+        Note.belongsTo(models.SongPost, { foreignKey: 'songPostId' });
+        Note.belongsTo(models.User, { foreignKey: 'userId' });
     };
     return Note;
 };
