@@ -12,7 +12,7 @@ block content
         +textField('Genre', 'genre', genre)
         +textField('Song Link', 'songLink', songLink)
         label(for="Post Text") Post Text
-        textarea(name="Post Text", cols="30", rows="10")
+        textarea(name="Post Text", cols="30", rows="10", value=body)
         div(class='create-buttons')
             button(type='submit' class='create-post') Post
             a(href='/' class='create-cancel') Cancel
