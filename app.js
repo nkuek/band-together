@@ -8,7 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const { sequelize } = require('./db/models');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { sessionSecret } = require('./config').db;
+const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth')
 
 const app = express();
@@ -21,25 +21,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(restoreUser)
 
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
+    name: 'bandtogether.sid',
     secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
   })
-);
-
-// create Session table if it doesn't already exist
-store.sync();
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+  );
+  
+  // create Session table if it doesn't already exist
+  store.sync();
+  app.use(restoreUser)
+  
+  app.use('/', indexRouter);
+  app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
