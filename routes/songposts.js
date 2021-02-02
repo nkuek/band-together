@@ -38,7 +38,7 @@ songPostValidation = [
 ];
 router.post(
     '/new',
-    /*csrfToken,*/ requireAuth,
+    /*csrfToken,*/
     songPostValidation,
     asyncHandler(async (req, res) => {
         const {
@@ -65,9 +65,9 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            res.redirect('');
+            res.end('created new post');
+            res.redirect('/');
         }
-        res.end('created new post');
     })
 );
 

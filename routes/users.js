@@ -120,6 +120,7 @@ router.post(
                 );
                 if (isValid) {
                     loginUser(req, res, user);
+                    // console.log(req.session.auth);
                     req.session.save(res.redirect('/'));
                 } else {
                     errors.push('Username password combination not valid');
