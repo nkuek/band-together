@@ -59,8 +59,10 @@ const userValidation = [
         }),
 ];
 
+//add csrfprotection when routes are live
 router.post(
     '/',
+    /*csrfProtection,*/
     userValidation,
     asyncHandler(async (req, res) => {
         const { username, email, password } = req.body;
@@ -75,7 +77,7 @@ router.post(
             user.hashedPassword = hashedPassword;
             await user.save();
             loginUser(req, res, user);
-            res.redirect('/');
+            req.session.save(res.redirect('/'));
         } else {
             const errors = validationErrors.array().map((error) => error.msg);
             console.log(errors);
@@ -83,9 +85,60 @@ router.post(
                 title: 'Register',
                 user,
                 errors,
+                // token: req.csrfToken()
             });
         }
     })
 );
+
+const loginValidation = [
+    check('username')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a username'),
+    check('password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a password')
+];
+
+router.get('/login', /*csrfProtection,*/ (req, res) => {
+    //res.render('login', {})
+    res.end('Welcome to the login page.')
+})
+//add csrfprotection when routes are live
+router.post('/login', /*csrfProtection,*/loginValidation, asyncHandler(async (req, res) => {
+    const { username, password } = req.body;
+    const validationErrors = validationResult(req);
+    let errors = []
+    if (validationErrors.isEmpty()) {
+        const user = await db.User.findOne({ where: { username } })
+        if (user) {
+            const isValid = await bcrypt.compare(password, user.hashedPassword.toString())
+            if (isValid) {
+                loginUser(req, res, user);
+                req.session.save(res.redirect('/'));
+            } else {
+                errors.push('Username password combination not valid')
+            }
+        } else {
+            errors.push('Username password combination not valid')
+        }
+    } else {
+        errors = validationErrors.array().map((error) => error.msg);
+    }
+    console.log(errors)
+    //remove when login pug route is available
+    res.end(`Did not reach login correctly ${errors}`)
+    res.render('login', {
+        title: 'Login',
+        errors, 
+        username,
+        //pass in csrfToken when ready
+    })
+}))
+
+router.post('/logout', (req, res) => {
+    logoutUser(req, res)
+    req.session.save(res.redirect('/'))
+})
 
 module.exports = router;
