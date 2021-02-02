@@ -59,10 +59,11 @@ const userValidation = [
         }),
 ];
 
+//add csrfprotection when routes are live
 router.post(
     '/',
+    /*csrfProtection,*/
     userValidation,
-    csrfProtection,
     asyncHandler(async (req, res) => {
         const { username, email, password } = req.body;
         const validationErrors = validationResult(req);
@@ -84,27 +85,60 @@ router.post(
                 title: 'Register',
                 user,
                 errors,
-                token: req.csrfToken()
+                // token: req.csrfToken()
             });
         }
     })
 );
 
-router.get('/login', csrfProtection, (req, res) => {
+const loginValidation = [
+    check('username')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a username'),
+    check('password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a password')
+];
+
+router.get('/login', /*csrfProtection,*/ (req, res) => {
     //res.render('login', {})
     res.end('Welcome to the login page.')
 })
-
-router.post('/login', asyncHandler(async(req, res) => {
-    const {username, password} = req.body;
-    const user = await db.User.findOne({where: {username}})
-    const isValid = await bcrypt.compare(password, user.hashedPassword.toString())
-    if(isValid){
-        loginUser(req, res, user);
-        req.session.save(res.redirect('/users/login'));
-    } else{
-        res.end('Username password combination not valid')
+//add csrfprotection when routes are live
+router.post('/login', /*csrfProtection,*/loginValidation, asyncHandler(async (req, res) => {
+    const { username, password } = req.body;
+    const validationErrors = validationResult(req);
+    let errors = []
+    if (validationErrors.isEmpty()) {
+        const user = await db.User.findOne({ where: { username } })
+        if (user) {
+            const isValid = await bcrypt.compare(password, user.hashedPassword.toString())
+            if (isValid) {
+                loginUser(req, res, user);
+                req.session.save(res.redirect('/'));
+            } else {
+                errors.push('Username password combination not valid')
+            }
+        } else {
+            errors.push('Username password combination not valid')
+        }
+    } else {
+        errors = validationErrors.array().map((error) => error.msg);
     }
+    console.log(errors)
+    //remove when login pug route is available
+    res.end(`Did not reach login correctly ${errors}`)
+    res.render('login', {
+        title: 'Login',
+        errors, 
+        username,
+        //pass in csrfToken when ready
+    })
 }))
+
+router.post('/logout', (req, res) => {
+    logoutUser(req, res)
+    req.session.save(res.redirect('/'))
+})
 
 module.exports = router;
