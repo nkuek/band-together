@@ -62,6 +62,7 @@ const userValidation = [
 router.post(
     '/',
     userValidation,
+    csrfProtection,
     asyncHandler(async (req, res) => {
         const { username, email, password } = req.body;
         const validationErrors = validationResult(req);
@@ -75,7 +76,7 @@ router.post(
             user.hashedPassword = hashedPassword;
             await user.save();
             loginUser(req, res, user);
-            res.redirect('/');
+            req.session.save(res.redirect('/'));
         } else {
             const errors = validationErrors.array().map((error) => error.msg);
             console.log(errors);
@@ -83,9 +84,27 @@ router.post(
                 title: 'Register',
                 user,
                 errors,
+                token: req.csrfToken()
             });
         }
     })
 );
+
+router.get('/login', csrfProtection, (req, res) => {
+    //res.render('login', {})
+    res.end('Welcome to the login page.')
+})
+
+router.post('/login', asyncHandler(async(req, res) => {
+    const {username, password} = req.body;
+    const user = await db.User.findOne({where: {username}})
+    const isValid = await bcrypt.compare(password, user.hashedPassword.toString())
+    if(isValid){
+        loginUser(req, res, user);
+        req.session.save(res.redirect('/users/login'));
+    } else{
+        res.end('Username password combination not valid')
+    }
+}))
 
 module.exports = router;
