@@ -4,14 +4,14 @@ include utils
 
 block content
     +validationErrorSummary(errors)
-    form(action='/user/register' method='post')
+    form(action='/users/register' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
-        +textField('Username', 'userName', user.userName)
-        +textField('Email', 'email', user.email)
-        +textField('Password', 'password', user.password, 'password')
-        +textField('Confirm Password', 'confirmedPassword', '', 'password')
+        +textField('Username', 'username', username)
+        +textField('Email', 'email', email)
+        +textField('Password', 'password', '', password)
+        +textField('Confirm Password', 'confirmPassword', '', confirmPassword)
         div(class='login-register-buttons')
             button(type='submit' class='login-register-submit') Register
             a(href='/' class='login-register-cancel') Cancel
     div
-    p: a(href='/user/login') Already have an account?
+    p: a(href='/users/login') Already have an account?
