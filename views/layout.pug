@@ -4,5 +4,19 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        title Band Together
   body
+    nav(class='navbar')
+      a(class='navbar-home' href='/') Band Together
+        ul(class='navbar-items')
+          li(class='navbar-elements'): a(class='nav-link' href='/songpost') Song Post
+        if locals.authenticated
+          span(class='login-logout')
+            a(class='user-profile' href='/user/profile') Welcome #{user.userName}!
+          form(class='logout-form' action='/user/logout' method='post')
+            button(class='logout-button' type='submit') Logout
+        else
+          span(class='login-logout')
+            a(class='user-login' href='/user/login') Login
+            a(class='user-register' href='/user/register') Register
     block content
