@@ -7,9 +7,8 @@ const db = require('../db/models/');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
-    res.end();
+router.get('/register', function (req, res, next) {
+    res.render('register', {userName: ''})
 });
 
 const userValidation = [
@@ -61,7 +60,7 @@ const userValidation = [
 
 //add csrfprotection when routes are live
 router.post(
-    '/',
+    '/register',
     /*csrfProtection,*/
     userValidation,
     asyncHandler(async (req, res) => {
@@ -81,9 +80,10 @@ router.post(
         } else {
             const errors = validationErrors.array().map((error) => error.msg);
             console.log(errors);
-            res.render('index', {
+            res.render('register', {
                 title: 'Register',
-                user,
+                username: user.username,
+                email: user.email,
                 errors,
                 // token: req.csrfToken()
             });
@@ -101,8 +101,7 @@ const loginValidation = [
 ];
 
 router.get('/login', /*csrfProtection,*/ (req, res) => {
-    //res.render('login', {})
-    res.end('Welcome to the login page.')
+    res.render('login')
 })
 //add csrfprotection when routes are live
 router.post('/login', /*csrfProtection,*/loginValidation, asyncHandler(async (req, res) => {
@@ -127,7 +126,6 @@ router.post('/login', /*csrfProtection,*/loginValidation, asyncHandler(async (re
     }
     console.log(errors)
     //remove when login pug route is available
-    res.end(`Did not reach login correctly ${errors}`)
     res.render('login', {
         title: 'Login',
         errors, 
