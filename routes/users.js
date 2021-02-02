@@ -2,9 +2,9 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection } = require('./utils');
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 const db = require('../db/models/');
 const router = express.Router();
-
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -19,9 +19,11 @@ const userValidation = [
         .isLength({ max: 50 })
         .withMessage('Username must not be greater than 50 characters.')
         .custom((value) => {
-            return db.User.findOne({ where: { username: value } }).then((user) => {
-                if (user) return Promise.reject('Username already in use.');
-            });
+            return db.User.findOne({ where: { username: value } }).then(
+                (user) => {
+                    if (user) return Promise.reject('Username already in use.');
+                }
+            );
         }),
     check('email')
         .exists({ checkFalsy: true })
@@ -63,24 +65,24 @@ router.post(
     asyncHandler(async (req, res) => {
         const { username, email, password } = req.body;
         const validationErrors = validationResult(req);
-        console.log(validationErrors)
+        console.log(validationErrors);
         const user = db.User.build({
-            username, 
-            email
-        })
+            username,
+            email,
+        });
         if (validationErrors.isEmpty()) {
             const hashedPassword = await bcrypt.hash(password, 10);
-            user.hashedPassword = hashedPassword
+            user.hashedPassword = hashedPassword;
             await user.save();
             loginUser(req, res, user);
             res.redirect('/');
         } else {
-            const errors = validationErrors.array().map(error => error.msg);
-            console.log(errors)
+            const errors = validationErrors.array().map((error) => error.msg);
+            console.log(errors);
             res.render('index', {
                 title: 'Register',
                 user,
-                errors
+                errors,
             });
         }
     })
