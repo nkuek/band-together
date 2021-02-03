@@ -54,11 +54,20 @@ h1 {
 .navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
   color: #45A29E;
 }
-
 .user-profile {
-
+position: relative;
+right: 70px;
 }
-
+.logout-button {
+  position: relative;
+  color: #C5C6C7;
+  background-color: #45A29E;
+  border-radius: 4px;
+  font-size: 15px;
+}
+.logout-button:hover {
+  background-color: #66FCF1;
+}
 .logout-form {
   position: absolute;
   top: 0;
