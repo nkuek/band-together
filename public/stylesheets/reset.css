@@ -25,3 +25,18 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar {
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+
+.navbar-items {
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+}
+
+.navbar-home, .nav-link, .user-login, .user-register, .user-profile {
+  text-decoration: none;
+}
