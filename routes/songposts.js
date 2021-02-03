@@ -65,14 +65,16 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            res.redirect(`/songposts/${songPost.id}`, {});
+            console.log(songPost)
+            res.redirect(`/songposts/${songPost.id}`);
         }
         res.redirect('/songposts/new', { songPost })
     })
 );
 
-router.get('/:id(\\d+)', (req, res) => {
-    res.end(`Welcome to ${id}`)
-})
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+    const songPost = await db.SongPost.findByPk(req.params.id)
+    res.render('songpost', {songPost})
+}));
 
 module.exports = router;
