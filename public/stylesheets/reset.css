@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1F2833;
 }
 
 a {
@@ -15,7 +16,7 @@ h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
 body, header, nav {
   font-size: 1rem;
   color: inherit;
-  background-color: transparent;
+  /* background-color: transparent; */
   margin: 0;
   padding: 0;
   outline: 0;
@@ -24,4 +25,76 @@ body, header, nav {
 
 h1 {
   font-size: 2rem;
+}
+
+/* Navbar style setup */
+.navbar {
+  padding: 30px 0 30px 0;
+  background-color: #0B0C10;
+  color: #C5C6C7;
+}
+.navbar-home {
+  padding: 20px;
+}
+.login-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+.navbar-items {
+  list-style: none;
+  float: right;
+  display: inline;
+  padding-right: 20px; ;
+}
+.navbar-home, .nav-link, .user-login, .user-register, .user-profile {
+  text-decoration: none;
+}
+.navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
+  color: #45A29E;
+}
+
+.user-profile {
+
+}
+
+.logout-form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+
+#recent-dis {
+  text-align: center;
+  color: #C5C6C7;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.home-posts {
+  background-color: #0B0C10;
+  color: #C5C6C7;
+  text-align: left;
+  padding: 20px;
+  margin: 10px auto 10px auto;
+  width: 600px;
+}
+
+.home-posts:hover {
+  background-color: #3b3f4d;
+}
+
+.home-posts h2 {
+  color: #66FCF1;
+  font-size: 24px;
+}
+
+.home-posts p {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
 }
