@@ -2,10 +2,10 @@ extends layout
 
 block content
     p: a(href='/') See all other posts
-        h1= postTitle
-            h2= songTitle
-            h2= artist
-            h2= album
-            h2= genre
-            h5= songLink
-            h5= body
+                h1= post.postTitle
+                h2= post.songTitle
+                h2= post.artist
+                h2= post.album
+                h2= post.genre
+                h5= post.songLink
+                h5= post.body
