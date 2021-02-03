@@ -54,11 +54,22 @@ h1 {
 .navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
   color: #45A29E;
 }
-
 .user-profile {
-
+position: relative;
+right: 70px;
 }
-
+.logout-button {
+  position: relative;
+  color: #C5C6C7;
+  background-color: #3b3f4d;
+  border-radius: 4px;
+  font-size: 15px;
+  border: none;
+}
+.logout-button:hover {
+  background-color: #66FCF1;
+  cursor: pointer;
+}
 .logout-form {
   position: absolute;
   top: 0;
@@ -66,13 +77,13 @@ h1 {
   padding: 20px;
 }
 
+/* Home page styling */
 #recent-dis {
   text-align: center;
   color: #C5C6C7;
   font-size: 30px;
   margin-top: 20px;
 }
-
 .home-posts {
   background-color: #0B0C10;
   color: #C5C6C7;
@@ -81,20 +92,136 @@ h1 {
   margin: 10px auto 10px auto;
   width: 600px;
 }
-
 .home-posts:hover {
   background-color: #3b3f4d;
 }
-
 .home-posts h2 {
   color: #66FCF1;
   font-size: 24px;
 }
-
 .home-posts p {
   font-size: 12px;
 }
-
 a {
   text-decoration: none;
+}
+
+/* Login Styling */
+.login-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Register styling */
+.register-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Form controlled styling */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 10px 10px;
+  box-sizing: border-box;
+  border-style: none;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  background-color: #DFF0F0;
+  font-size: 20px;
+  width: 100%;
+}
+.form-group {
+  font-size: 20px;
+  padding: 7px;
+}
+
+/* Login and register submit/cancel buttons */
+.login-register-buttons {
+  padding: 20px;
+}
+.login-register-submit {
+  background-color:   #66FCF1;
+  color: black;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.login-register-submit:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}
+.login-register-cancel {
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.login-register-cancel:hover {
+  background-color: #45A29E;
+}
+
+/* If not account styling */
+.no-account:hover {
+  color: #818699;
+}
+
+/* Songpost Styling */
+.songpost-post {
+  background-color: #0B0C10;
+  color: #DFF0F0;
+  width: 800px;
+  margin: 30px auto 30px auto;
+}
+.all-posts {
+  padding: 10px;
+}
+.all-posts:hover {
+  color: #818699;
+}
+.delete-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 6px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.delete-post:hover {
+ background-color: #45A29E;
+ cursor: pointer;
+}
+.edit-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.edit-post:hover {
+  background-color: #45A29E;
+  cursor: pointer;
 }

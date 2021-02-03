@@ -3,19 +3,20 @@ extends layout
 append head
     script(src='/javascripts/index.js')
 block content
-    p: a(href='/') See all other posts
-    p: a(href='/') Delete Post
-    p: a(href='/') Edit Post
+
     div(class='songpost-post')
-        h1= songPost.postTitle
-            h2= songPost.songTitle
-            h2= songPost.artist
-            h2= songPost.album
-            h2= songPost.genre
-            h5= songPost.songLink
-            h5= songPost.body
-    div(class='songpost-note')
-        form(class='notes-form' id=songPost.id)
+        p(class='all-posts'): a(href='/') <- See all other posts
+        p(class='delete-post'): a(href='/') Delete Post
+        p(class='edit-post'): a(href='/') Edit Post
+            h1= songPost.postTitle
+                h2= songPost.songTitle
+                h2= songPost.artist
+                h2= songPost.album
+                h2= songPost.genre
+                h5= songPost.songLink
+                h5= songPost.body
+        div(class='songpost-note')
+            form(class='notes-form' id=songPost.id)
             input(type="hidden" name="_csrf" value=csrfToken)
             label(for="postComment") Post Comment
             textarea(name="postComment", cols="40", rows="10" value=body)
@@ -27,3 +28,4 @@ block content
             div(class="notes-container")
                 each note in notes
                     div= note.body
+

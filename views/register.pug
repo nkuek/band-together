@@ -3,15 +3,16 @@ extends layout
 include utils
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/users/register' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +textField('Username', 'username', username, 'username')
-        +textField('Email', 'email', email, 'email')
-        +textField('Password', 'password', password, 'password')
-        +textField('Confirm Password', 'confirmPassword', confirmPassword, 'password')
-        div(class='login-register-buttons')
-            button(type='submit' class='login-register-submit') Register
-            a(href='/' class='login-register-cancel') Cancel
-    div
-    p: a(href='/users/login') Already have an account?
+    div(class="register-form")
+        +validationErrorSummary(errors)
+        form(action='/users/register' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +textField('Username', 'username', username, 'username')
+            +textField('Email', 'email', email, 'email')
+            +textField('Password', 'password', password, 'password')
+            +textField('Confirm Password', 'confirmPassword', confirmPassword, 'password')
+            div(class='login-register-buttons')
+                button(type='submit' class='login-register-submit') Register
+                a(href='/' class='login-register-cancel') Cancel
+        div
+        p: a(href='/users/login' class="no-account") Already have an account?
