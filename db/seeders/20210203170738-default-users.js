@@ -1,78 +1,82 @@
 'use strict';
 const faker = require('faker');
-
-const randomName = faker.internet.username.findName();
-const randomEmail = faker.internet.email(); 
-const password = random.hex(32)
+const bcrypt = require('bcrypt');
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
     /*
     */
-   return queryInterface.bulkInsert('Users', [{
-     username: randomName,
-     email: randomEmail,
-     hashedPassword: password,
+     const users = await queryInterface.bulkInsert('Users', [{
+     username: faker.internet.userName(),
+     email: faker.internet.email(),
+     hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
      createdAt: new Date(),
      updatedAt: new Date(),
    },
    {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    username: randomName,
-    email: randomEmail,
-    hashedPassword: password,
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
     createdAt: new Date(),
     updatedAt: new Date(),
   }
-  ], {});
+  ], { returning: true });
   },
 
   down: (queryInterface, Sequelize) => {
