@@ -2,7 +2,7 @@
 
 { 'Jewel', 'Flume, Hi This Is Flume', 'Electronic', 'https://youtu.be/_ADZq3fyw9k' }
 { Hyperreal, Flume, Skin Companion EP 2, Electronic, https://youtu.be/SPc-oWXEhQQ}
-{ Where Is My Mind?, Pixies, Surfer Rosa, Alternative/Indie, https://youtu.be/N3oCS85HvpY} 
+{ Where Is My Mind?, Pixies, Surfer Rosa, Alternative/Indie, https://youtu.be/N3oCS85HvpY}
 { Tuxedo Hat, The Octopus Project, One Ten Hundred Thousand Million, Electronic, https://youtu.be/48sLCAdbEEY}
 { After Dark, Mr.Kitty, Time, Alternative/Indie, https://youtu.be/waAlgFq9Xq8 }
 
@@ -16,15 +16,15 @@
 { The Birds (Part 1), The Weeknd, Thursday, R&B, https://youtu.be/t2_YyRBYZjM }
 { Adieu, Tchami, Revelations, Electronic, https://youtu.be/kr0_YzOQf5A }
 
-{ Better, Guns N’ Roses, Chinese Democracy, Metal, https://youtu.be/tVKtLfFD8Po }
-{ Stairway To Heaven, Led Zeppelin, Led Zeppelin IV, Hard Rock, https://youtu.be/QkF3oxziUI4 }
-{ Comfortably Numb, Pink Floyd, The Wall, Pop, https://youtu.be/_FrOQC-zEog }
+{ 'Better', 'Guns N’ Roses', 'Chinese Democracy', 'Metal', 'https://youtu.be/tVKtLfFD8Po' }
+{ 'Stairway To Heaven', 'Led Zeppelin', 'Led Zeppelin IV', 'Hard Rock', 'https://youtu.be/QkF3oxziUI4' }
+{ 'Comfortably Numb', 'Pink Floyd', 'The Wall', 'Pop', 'https://youtu.be/_FrOQC-zEog' }
 
-{ Super Trapper, Future, Future,  Hip-Hop/Rap, https://youtu.be/P1J1mby_5Dg }
-{ XO Tour Llif3, Lil Uzi Vert, Luv Is Rage, Emo Rap, https://youtu.be/WrsFXgQk5UI }
-{ Moment of Clarity, Jay-Z, The Black Album, Hip-Hop/Rap, https://open.spotify.com/track/5TTFD5DuFhQOrs0RJxGDbD }
-{ Ether, Nas, Stillmatic, Hip-Hop/Rap, https://youtu.be/aznJJir__oE }
-{ Roses, SAINt JHN, Collection One, Dance/Electronic, https://youtu.be/XHA-QM-q-3E}
+{ 'Super Trapper', 'Future', 'Future',  'Hip-Hop/Rap', 'https://youtu.be/P1J1mby_5Dg' }
+{ 'XO Tour Llif3', 'Lil Uzi Vert', 'Luv Is Rage', 'Emo Rap', 'https://youtu.be/WrsFXgQk5UI' }
+{ 'Moment of Clarity', 'Jay-Z', 'The Black Album', 'Hip-Hop/Rap', 'https://open.spotify.com/track/5TTFD5DuFhQOrs0RJxGDbD' }
+{ 'Ether', 'Nas', 'Stillmatic', 'Hip-Hop/Rap', 'https://youtu.be/aznJJir__oE'}
+{ 'Roses', 'SAINt JHN', 'Collection One', 'Dance/Electronic', 'https://youtu.be/XHA-QM-q-3E'}
 
 
 
@@ -63,5 +63,5 @@
 
 
 // how should we handle Songs where multiple artists are featured?
-// How should we decide on multiple genres? 
+// How should we decide on multiple genres?
 // what genres are we deciding on?
