@@ -61,12 +61,14 @@ right: 70px;
 .logout-button {
   position: relative;
   color: #C5C6C7;
-  background-color: #45A29E;
+  background-color: #3b3f4d;
   border-radius: 4px;
   font-size: 15px;
+  border: none;
 }
 .logout-button:hover {
   background-color: #66FCF1;
+  cursor: pointer;
 }
 .logout-form {
   position: absolute;
