@@ -12,19 +12,17 @@
 { 'Clocks', 'Coldplay', 'A Rush of Blood to the Head', 'Rock', 'https://youtu.be/PFW2uSCZ0uE', null, 1, new Date(), new Date()}
 { 'Paradise', 'Coldplay, Mylo Xyloto', 'Alternative/Indie', 'https://youtu.be/1G4isv_Fylg', null, 1, new Date(), new Date() }
 
-{ 'Watermelon Sugar', 'Harry Styles', 'Fine Line', 'Pop', 'https://youtu.be/E07s5ZYygMg', null, 1, new Date(), new Date() }
-{ 'The Birds (Part 1)', 'The Weeknd', 'Thursday', 'R&B', 'https://youtu.be/t2_YyRBYZjM' , null, 1, new Date(), new Date() }
-{ 'Adieu', 'Tchami', 'Revelations', 'Electronic', 'https://youtu.be/kr0_YzOQf5A', null, 1, new Date(), new Date() }
-
-{ 'Better', 'Guns N’ Roses', 'Chinese Democracy', 'Metal', 'https://youtu.be/tVKtLfFD8Po', null, 1, new Date(), new Date() }
-{ 'Stairway To Heaven', 'Led Zeppelin', 'Led Zeppelin IV', 'Hard Rock', 'https://youtu.be/QkF3oxziUI4', null, 1, new Date(), new Date() }
-{ 'Comfortably Numb', 'Pink Floyd', 'The Wall', 'Pop', 'https://youtu.be/_FrOQC-zEog', null, 1, new Date(), new Date() }
-
-{ 'Super Trapper', 'Future', 'Future',  'Hip-Hop/Rap', 'https://youtu.be/P1J1mby_5Dg', null, 1, new Date(), new Date() }
-{ 'XO Tour Llif3', 'Lil Uzi Vert', 'Luv Is Rage', 'Emo Rap', 'https://youtu.be/WrsFXgQk5UI', null, 1, new Date(), new Date() }
-{ 'Moment of Clarity', 'Jay-Z', 'The Black Album', 'Hip-Hop/Rap', 'https://open.spotify.com/track/5TTFD5DuFhQOrs0RJxGDbD', null, 1, new Date(), new Date() }
-{ 'Ether', 'Nas', 'Stillmatic', 'Hip-Hop/Rap', 'https://youtu.be/aznJJir__oE', null, 1, new Date(), new Date() }
-{ 'Roses', 'SAINt JHN', 'Collection One', 'Dance/Electronic', 'https://youtu.be/XHA-QM-q-3E', null, 1, new Date(), new Date() }
+[{ postTitle: 'Watermelon Sugar Post', songTitle: 'Watermelon Sugar', artist:'Harry Styles', album: 'Fine Line', genre: 'Pop', songLink: 'https://youtu.be/E07s5ZYygMg', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'The Birds (Part 1) Post', songTitle: 'The Birds (Part 1)', artist:'The Weeknd', album: 'Thursday', genre: 'R&B', songLink: 'https://youtu.be/t2_YyRBYZjM' , body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Adieu Post', songTitle: 'Adieu', artist:'Tchami', album: 'Revelations', genre: 'Electronic', songLink: 'https://youtu.be/kr0_YzOQf5A', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Better Post', songTitle: 'Better', artist:, 'Guns N’ Roses', album: 'Chinese Democracy', genre: 'Metal', songLink: 'https://youtu.be/tVKtLfFD8Po', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Stairway To Heaven Post', songTitle: 'Stairway To Heaven', artist:'Led Zeppelin', album: 'Led Zeppelin IV', genre: 'Hard Rock', songLink: 'https://youtu.be/QkF3oxziUI4', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Comfortably Numb Post', songTitle: 'Comfortably Numb', artist:'Pink Floyd', album: 'The Wall', genre: 'Pop', songLink: 'https://youtu.be/_FrOQC-zEog', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Super Trapper Post', songTitle: 'Super Trapper', artist:'Future', album: 'Future',  genre: 'Hip-Hop/Rap', songLink: 'https://youtu.be/P1J1mby_5Dg', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'XO Tour Llif3 Post', songTitle: 'XO Tour Llif3', artist:'Lil Uzi Vert', album: 'Luv Is Rage', genre: 'Emo Rap', songLink: 'https://youtu.be/WrsFXgQk5UI', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Moment of Clarity Post', songTitle: 'Moment of Clarity', artist:'Jay-Z', album: 'The Black Album', genre: 'Hip-Hop/Rap', songLink: 'https://open.spotify.com/track/5TTFD5DuFhQOrs0RJxGDbD', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Ether Post', songTitle: 'Ether', artist:'Nas', album: 'Stillmatic', genre: 'Hip-Hop/Rap', songLink: 'https://youtu.be/aznJJir__oE', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+{ postTitle: 'Roses Post', songTitle: 'Roses', artist:'SAINt JHN', album: 'Collection One', genre: 'Dance/Electronic', songLink: 'https://youtu.be/XHA-QM-q-3E', body: null, userId: 1, createdAt: new Date(), updatedAt: new Date() }]
 
 
 
