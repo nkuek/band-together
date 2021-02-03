@@ -3,13 +3,14 @@ extends layout
 include utils
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/users/login' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +textField('Username', 'username', username)
-        +textField('Password', 'password', null, 'password')
-        div(class='login-register-buttons')
-            button(type='submit' class='login-register-submit') Login
-            a(href='/' class='login-register-cancel') Cancel
-    div
-    p: a(href='/users/register') Don't have an account?
+    div(class="login-form")
+        +validationErrorSummary(errors)
+        form(action='/users/login' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +textField('Username: ', 'username', username)
+            +textField('Password: ', 'password', null, 'password')
+            div(class='login-register-buttons')
+                button(type='submit' class='login-register-submit') Login
+                a(href='/' class='login-register-cancel') Cancel
+        div
+        p: a(href='/users/register') Don't have an account?
