@@ -177,3 +177,49 @@ a {
 .no-account:hover {
   color: #818699;
 }
+
+/* Songpost Styling */
+.songpost-post {
+  background-color: #0B0C10;
+  color: #DFF0F0;
+  width: 800px;
+  margin: 30px auto 30px auto;
+}
+.all-posts {
+  padding: 10px;
+}
+.all-posts:hover {
+  color: #818699;
+}
+.delete-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 6px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.delete-post:hover {
+ background-color: #45A29E;
+ cursor: pointer;
+}
+.edit-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.edit-post:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}

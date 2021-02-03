@@ -1,24 +1,24 @@
 extends layout
 
 block content
-    p: a(href='/') See all other posts
-    p: a(href='/') Delete Post
-    p: a(href='/') Edit Post
     div(class='songpost-post')
-        h1= songPost.postTitle
-            h2= songPost.songTitle
-            h2= songPost.artist
-            h2= songPost.album
-            h2= songPost.genre
-            h5= songPost.songLink
-            h5= songPost.body
-    div(class='songpost-note')
-        form(action="/songpost" method="post")
-            label(for="Post Comment") Post Comment
-            textarea(name="Post Comment", cols="40", rows="10" value=note)
-            div(class='songpost-note-submit')
-                button(type='submit' class='create-post') Post
-                a(href='/' class='create-cancel') Cancel
-    div(class='songpost-note-show')
-        h1 Comments
-            p= note
+        p(class='all-posts'): a(href='/') <- See all other posts
+        p(class='delete-post'): a(href='/') Delete Post
+        p(class='edit-post'): a(href='/') Edit Post
+            h1= songPost.postTitle
+                h2= songPost.songTitle
+                h2= songPost.artist
+                h2= songPost.album
+                h2= songPost.genre
+                h5= songPost.songLink
+                h5= songPost.body
+        div(class='songpost-note')
+            form(action="/songpost" method="post")
+                label(for="Post Comment") Post Comment
+                textarea(name="Post Comment", cols="40", rows="10" value=note)
+                div(class='songpost-note-submit')
+                    button(type='submit' class='create-post') Post
+                    a(href='/' class='create-cancel') Cancel
+        div(class='songpost-note-show')
+            h1 Comments
+                p= note
