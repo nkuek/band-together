@@ -4,7 +4,7 @@ append head
     script(src='/javascripts/index.js')
 block content
 
-    div(class='songpost-post')
+    div(class='songpost-post' id=songPost.id)
         p(class='all-posts'): a(href='/') <- See all other posts
         p(class='delete-post'): a(href='/') Delete Post
         p(class='edit-post'): a(href='/') Edit Post
