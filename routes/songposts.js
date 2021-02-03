@@ -5,8 +5,8 @@ const { requireAuth } = require('../auth');
 const db = require('../db/models/');
 const router = express.Router();
 
-router.get('/new', /*csrfToken,*/ requireAuth, (req, res) => {
-    res.send('welcome to new song post form');
+router.get('/new', csrfProtection, requireAuth, (req, res) => {
+    res.render('songpost-create', { csrfToken: req.csrfToken() });
 });
 
 songPostValidation = [
@@ -37,8 +37,8 @@ songPostValidation = [
         .withMessage('Genre cannot be longer than 50 characters'),
 ];
 router.post(
-    '/new',
-    /*csrfToken,*/
+    '/',
+    csrfProtection,
     songPostValidation,
     asyncHandler(async (req, res) => {
         const {
@@ -65,10 +65,16 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            res.end('created new post');
-            res.redirect('/');
+            console.log(songPost)
+            res.redirect(`/songposts/${songPost.id}`);
         }
+        res.redirect('/songposts/new', { songPost })
     })
 );
+
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+    const songPost = await db.SongPost.findByPk(req.params.id)
+    res.render('songpost', {songPost})
+}));
 
 module.exports = router;

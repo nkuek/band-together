@@ -3,7 +3,7 @@ extends layout
 include utils
 
 block content
-    form(action='/users/songposts/:id' method='post')
+    form(action='/songposts' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         +textField('Post Title', 'postTitle', postTitle)
         +textField('Song Title', 'songTitle', songTitle)
