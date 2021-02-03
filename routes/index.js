@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const db = require('../db/models')
+const {asyncHandler} = require('./utils')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'a/A Express Skeleton Home' });
-});
+router.get('/', asyncHandler(async(req, res, next) => {
+  const songPosts = await db.SongPost.findAll({order: ['createdAt'], limit: 10})
+  res.render('home', { title: 'Welcome to Band-Together', songPosts });
+}))
 
 module.exports = router;

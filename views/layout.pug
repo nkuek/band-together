@@ -2,14 +2,14 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="Band-Together"
         link(rel='stylesheet' href='/stylesheets/reset.css')
         title Band Together
   body
     nav(class='navbar')
       a(class='navbar-home' href='/') Band Together
         ul(class='navbar-items')
-          li(class='navbar-elements'): a(class='nav-link' href='/songposts') Song Post
+          li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') Create Song Post
         if locals.authenticated
           span(class='login-logout')
             a(class='user-profile' href='/users/profile') Welcome #{user.username}!

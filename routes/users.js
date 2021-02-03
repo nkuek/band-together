@@ -78,7 +78,6 @@ router.post(
             req.session.save(res.redirect('/'));
         } else {
             const errors = validationErrors.array().map((error) => error.msg);
-            console.log(errors);
             res.render('register', {
                 title: 'Register',
                 username: user.username,
