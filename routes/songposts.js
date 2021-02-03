@@ -65,16 +65,25 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            console.log(songPost)
+            console.log(songPost);
             res.redirect(`/songposts/${songPost.id}`);
         }
-        res.redirect('/songposts/new', { songPost })
+        res.redirect('/songposts/new', { songPost });
     })
 );
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-    const songPost = await db.SongPost.findByPk(req.params.id)
-    res.render('songpost', {songPost})
-}));
+router.get(
+    '/:id(\\d+)',
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const songPost = await db.SongPost.findByPk(req.params.id);
+        const notes = await db.Note.findAll({
+            where: { songPostId: req.params.id },
+            order: ['createdAt'],
+        });
+
+        res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });
+    })
+);
 
 module.exports = router;
