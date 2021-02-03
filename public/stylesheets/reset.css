@@ -172,3 +172,8 @@ a {
 .login-register-cancel:hover {
   background-color: #45A29E;
 }
+
+/* If not account styling */
+.no-account:hover {
+  color: #818699;
+}
