@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h3 Recent Discussions
+         each post in songPosts
+            a(href=`/songposts/${post.id}`)
+                h1= post.postTitle
+                    h2= post.songTitle
+                    h2= post.artist

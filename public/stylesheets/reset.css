@@ -27,25 +27,43 @@ h1 {
   font-size: 2rem;
 }
 
+/* Navbar style setup */
 .navbar {
-  text-align: center;
-  padding: 20px 0 20px 0;
+  padding: 30px 0 30px 0;
   background-color: #0B0C10;
   color: #C5C6C7;
 }
-
-.navbar-items {
-  list-style: none;
-  display: inline-block;
+.navbar-home {
   padding: 20px;
 }
-
+.login-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+.navbar-items {
+  list-style: none;
+  float: right;
+  display: inline;
+  padding-right: 20px; ;
+}
 .navbar-home, .nav-link, .user-login, .user-register, .user-profile {
   text-decoration: none;
 }
-
 .navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
   color: #45A29E;
+}
+
+.user-profile {
+
+}
+
+.logout-form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
 }
 
 #recent-dis {
