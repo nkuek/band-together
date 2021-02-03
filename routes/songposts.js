@@ -80,6 +80,7 @@ router.get(
         const notes = await db.Note.findAll({
             where: { songPostId: req.params.id },
             order: ['createdAt'],
+            include: db.User,
         });
 
         res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });

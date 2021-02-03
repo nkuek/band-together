@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const newNote = document.createElement('div');
                 newNote.innerHTML = note.body;
                 notesContainer.appendChild(newNote);
+                document.querySelector('.noteText').value = '';
             } catch (e) {
                 console.error(e);
             }
