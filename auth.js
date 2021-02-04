@@ -7,6 +7,7 @@ const loginUser = (req, res, user) => {
 };
 
 const logoutUser = (req, res) => {
+    res.locals.authenticated = false;
     delete req.session.auth;
 };
 

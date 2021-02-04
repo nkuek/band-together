@@ -143,6 +143,7 @@ router.post(
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
     req.session.save(res.redirect('/'));
+    res.render('home');
 });
 
 router.get('/:username/');
