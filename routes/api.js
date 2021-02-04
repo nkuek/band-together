@@ -77,7 +77,8 @@ router.get(
     requireAuth,
     asyncHandler(async (req, res, next) => {
         const songPostNote = await db.Note.findByPk(
-            parseInt(req.params.noteid, 10)
+            parseInt(req.params.noteid, 10),
+            {include: db.User}
         );
         if (songPostNote) {
             res.json({
