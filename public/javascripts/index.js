@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .querySelector('.notes-form')
         .addEventListener('submit', async (e) => {
             e.preventDefault();
-            const notesForm = document.querySelector('.notes-form')
+            const notesForm = document.querySelector('.notes-form');
             const formData = new FormData(notesForm);
             const noteText = formData.get('postComment');
             try {
@@ -16,18 +16,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         body: JSON.stringify({ body: noteText }),
                     }
                 );
-                const { note } = await res.json();
+                const { note, username } = await res.json();
                 const notesContainer = document.querySelector(
                     '.notes-container'
                 );
 
                 const newNote = document.createElement('div');
-                newNote.innerHTML = note.body;
+
+                newNote.innerHTML = `${username}: ${note.body}`;
                 notesContainer.appendChild(newNote);
                 document.querySelector('.noteText').value = '';
             } catch (e) {
                 console.error(e);
             }
         });
-        
+    document
+        .querySelector('.delete-post')
+        .addEventListener('click', async (e) => {
+            e.preventDefault();
+            return await fetch(
+                `http://localhost:8080/api/songposts/${songpostPost.id}/delete`,
+                {
+                    method: 'DELETE',
+                }
+            );
+            // window.location = '/';
+        });
 });
