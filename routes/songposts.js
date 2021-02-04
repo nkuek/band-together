@@ -115,10 +115,10 @@ router.get(
                 });
             }
             await songPost.destroy();
-            res.status(204);
-            res.redirect('/');
+            return res.redirect('/');
+        } else {
+            next(songPost);
         }
-        next(songPost);
     })
 );
 
