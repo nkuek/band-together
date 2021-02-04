@@ -3,7 +3,7 @@ extends layout
 block content
     h3(id='recent-dis') Recent Discussions
          each post in songPosts
-            a(href=`/songposts/${post.id}`)
-                div(class='home-posts')
+            div(class='home-posts')
+                a(href=`/songposts/${post.id}` class='home-links')
                     h2= post.postTitle
-                    p Song: #{post.songTitle} / Artist: #{post.artist}
+                        p Song: #{post.songTitle} / Artist: #{post.artist}
