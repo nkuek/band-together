@@ -2,6 +2,7 @@ extends layout
 
 append head
     script(src='/javascripts/index.js')
+    script(src='/javascripts/3-dots.js')
 block content
 
     div(class='songpost-post' id=songPost.id)
@@ -32,7 +33,20 @@ block content
             if notes.length > 0
                 each note in notes
                     div(class="notes-posted") #{note.User.username}: #{note.body}
-                        a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit") Edit
-                        a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
+                        div(class="dot-container")
+                            div(class="dot-more")
+                                button(id="more-btn" class="more-btn")
+                                    span(class="more-dot")
+                                    span(class="more-dot")
+                                    span(class="more-dot")
+                                div(class="more-menu")
+                                    div(class="more-menu-caret")
+                                        div(class="more-menu-outer")
+                                        div(class="more-menu-inner")
+                                    ul(class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true")
+                                        li(class="more-menu-item" role="presentation")
+                                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit") Edit
+                                        li(class="more-menu-item" role="presentation")
+                                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
             else
                 h2(id='no-comment') There are no comments yet! Start a discussion!
