@@ -121,6 +121,18 @@ right: 60px;
   font-size: 30px;
   margin-top: 20px;
 }
+.upvote {
+  float: right;
+  position: relative;
+  right: 30px;
+  top: 15px;
+  border: solid 1px #C5C6C7;
+  padding: 10px;
+}
+.upvote:hover {
+  background-color: #27282e;
+  cursor: pointer;
+}
 .home-posts {
   background-color: #0B0C10;
   border: #C5C6C7 solid 1px;
