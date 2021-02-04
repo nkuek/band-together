@@ -82,7 +82,6 @@ router.get(
             order: [['createdAt', 'DESC']],
             include: db.User,
         });
-        console.log(notes.length);
         res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });
     })
 );
@@ -105,6 +104,46 @@ router.get(
             res.redirect('/');
         }
         next(songPost);
+    })
+);
+
+router.get(
+    '/:id/edit',
+    requireAuth,
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const postInformation = await db.SongPost.findByPk(req.params.id);
+        res.render('songpost-edit', {
+            postInformation,
+            csrfToken: req.csrfToken(),
+        });
+    })
+);
+
+router.post(
+    '/:id/edit',
+    requireAuth,
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        const {
+            postTitle,
+            songTitle,
+            artist,
+            album,
+            genre,
+            songLink,
+            body,
+        } = req.body;
+        const post = await db.SongPost.findByPk(req.params.id);
+        post.postTitle = postTitle;
+        post.songTitle = songTitle;
+        post.artist = artist;
+        post.album = album;
+        post.genre = genre;
+        post.songLink = songLink;
+        post.body = body;
+        post.save();
+        res.redirect(`/songposts/${post.id}`);
     })
 );
 
