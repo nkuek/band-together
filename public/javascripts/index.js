@@ -30,16 +30,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 console.error(e);
             }
         });
-    document
-        .querySelector('.delete-post')
-        .addEventListener('click', async (e) => {
-            e.preventDefault();
-            return await fetch(
-                `http://localhost:8080/api/songposts/${songpostPost.id}/delete`,
-                {
-                    method: 'DELETE',
-                }
-            );
-            // window.location = '/';
-        });
 });

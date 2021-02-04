@@ -46,27 +46,4 @@ router.delete(
     })
 );
 
-router.delete(
-    '/api/songposts/:id/',
-    requireAuth,
-    asyncHandler(async (req, res, next) => {
-        const songPostNotes = await db.Note.findAll({
-            where: { songPostId: req.params.id },
-            include: db.SongPost,
-        });
-        const songPost = await db.SongPost.findByPk(
-            parseInt(req.params.id, 10)
-        );
-        console.log(songPostNotes);
-        if (songPost) {
-            if (songPostNotes) {
-                songPostNotes.forEach(async (note) => await note.destroy());
-            }
-            await songPost.destroy();
-            res.redirect('/');
-        }
-        next(songPost);
-    })
-);
-
 module.exports = router;

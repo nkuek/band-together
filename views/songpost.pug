@@ -6,9 +6,9 @@ block content
 
     div(class='songpost-post' id=songPost.id)
         p(class='all-posts'): a(href='/') <- See all other posts
-        form(action=`/songposts/${songPost.id}` method="delete")
-            p(class='delete-post'): a() Delete Post
-        p(class='edit-post'): a(href='/') Edit Post
+        form(action=`/songposts/${songPost.id}` method="post")
+            p(class='delete-post'): a(href=`/songposts/${songPost.id}/delete`) Delete Post
+        p(class='edit-post'): a(href=`/songposts/${songPost.id}/edit`) Edit Post
             h1= songPost.postTitle
                 h2= songPost.songTitle
                 h2= songPost.artist
