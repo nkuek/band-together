@@ -28,21 +28,47 @@ router.post(
             const user = await db.User.findByPk(note.userId);
             res.json({ note, username: user.username });
         }
+        // should we push this validation to display?
     })
 );
 
 router.delete(
-    '/api/songposts/:id/notes/:noteid/delete',
+    '/songposts/:id/notes/:noteid/delete',
     requireAuth,
     asyncHandler(async (req, res, next) => {
-        const songPost = await db.SongPost.findByPk(
-            parseInt(req.params.id, 10)
+        const songPostNote = await db.Note.findByPk(
+            parseInt(req.params.noteid, 10)
         );
-        if (songPost) {
-            await songPost.destroy();
-            res.status(204).end();
+        if (songPostNote) {
+            await songPostNote.destroy();
+            res.json({
+                songPostNote
+            });
         }
-        next(songPost);
+        else {
+            next(songPostNote)
+        }
+    })
+);
+
+router.put(
+    '/songposts/:id/notes/:noteid/edit',
+    requireAuth,
+    asyncHandler(async (req, res, next) => {
+        const songPostNote = await db.Note.findByPk(
+            parseInt(req.params.noteid, 10)
+        );
+        if (songPostNote) {
+            await songPostNote.update({
+                
+            });
+            res.json({
+                songPostNote
+            });
+        }
+        else {
+            next(songPostNote)
+        }
     })
 );
 

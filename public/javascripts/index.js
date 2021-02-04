@@ -31,4 +31,43 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 console.error(e);
             }
         });
+
+        document.querySelector('.note-delete').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const deleteButton = document.querySelector('.note-delete')
+            
+
+            try {
+                const res = await fetch(
+                    deleteButton.href,
+                    {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' }
+                    }
+                    );
+                    deleteButton.parentElement.innerHTML = ""
+            } catch (e) {
+                console.error(e);
+            }
+        });
+
+        document.querySelector('.note-edit').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const editButton = document.querySelector('.node-edit')
+            const body = editButton.parentElement.value
+
+            try {
+                const res = await fetch(
+                    deleteButton.href,
+                    {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' }
+                    }
+                    );
+                    deleteButton.parentElement.innerHTML = ""
+            } catch (e) {
+                console.error(e);
+            }
+        });
+
 });
