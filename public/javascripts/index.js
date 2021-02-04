@@ -36,12 +36,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector('.songpost-note').addEventListener('click', async (e) => {
         e.preventDefault();
         const editButton = e.target;
-        const body = editButton.parentElement.value
         if (e.target.className === 'note-delete') {
-
             const deleteButton = e.target
-
-
             try {
                 const res = await fetch(
                     deleteButton.href,
