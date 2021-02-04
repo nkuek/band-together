@@ -5,7 +5,6 @@ body {
 }
 
 a {
-  color: #00B7FF;
   text-decoration: none;
 }
 
@@ -91,7 +90,6 @@ right: 60px;
   border: #C5C6C7 solid 1px;
   box-shadow: 5px 10px 8px #14161a;
   text-align: left;
-  padding: 20px;
   margin: 20px auto 20px auto;
   width: 600px;
 }
@@ -101,11 +99,15 @@ right: 60px;
 .home-posts h2 {
   color: #66FCF1;
   font-size: 24px;
+  height: 100px;
+  padding: 20px;
 }
 .home-posts h2 p {
   font-size: 12px;
   color: #C5C6C7;
-
+}
+.home-links {
+  text-decoration: none;
 }
 
 /* Login Styling */
@@ -199,12 +201,35 @@ right: 60px;
 .all-posts:hover {
   color: #818699;
 }
-/* Delete and edit buttons */
-.delete-post {
+.link-to-song {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.link-to-song:hover {
+  color: #45A29E;
+}
+.songpost-body {
+  margin-top: 20px;
+  border-top: solid 1px;
+  padding-top: 20px;
+}
+.moving-the-name {
   float: right;
   position: relative;
-  bottom: 48px;
-  right: 6px;
+  left: 10px;
+  top: 10px;
+}
+.user-link {
+  font-size: 13px;
+}
+/* Delete and edit buttons */
+.delete-post {
+  /* float: right; */
+  display: inline;
+  position: relative;
+  bottom: 30px;
+  left: 670px;
+  width: 110px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
@@ -217,10 +242,11 @@ right: 60px;
  cursor: pointer;
 }
 .edit-post {
-  float: right;
+  display: inline;
   position: relative;
-  bottom: 48px;
-  right: 2px;
+  bottom: 30px;
+  left: 450px;
+  width: 90px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
@@ -235,7 +261,7 @@ right: 60px;
 /* Users songpost section */
 .entire-post {
   background-color: #14161a ;
-  margin: 10px 10px 10px 10px;
+  margin: 0px 10px 10px 10px;
   text-align: left;
   padding: 20px;
 }
