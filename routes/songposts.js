@@ -76,6 +76,9 @@ router.get(
     '/:id(\\d+)',
     csrfProtection,
     asyncHandler(async (req, res) => {
+        if (!res.locals.authenticated) {
+            res.redirect('/users/login');
+        }
         const songPost = await db.SongPost.findByPk(req.params.id);
         const notes = await db.Note.findAll({
             where: { songPostId: req.params.id },
