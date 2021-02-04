@@ -124,20 +124,10 @@ router.get(
     '/:id/edit',
     requireAuth,
     csrfProtection,
-    songPostValidation,
     asyncHandler(async (req, res) => {
-        const validationErrors = validationResult(req);
         const postInformation = await db.SongPost.findByPk(req.params.id);
 
-        if (validationErrors.isEmpty()) {
-            await songPost.save();
-            res.render('songpost-edit', {
-                postInformation,
-                csrfToken: req.csrfToken(),
-            });
-        }
-        res.render(`/songposts/${songPost.id}/edit`, {
-            validationErrors,
+        res.render('songpost-edit', {
             postInformation,
             csrfToken: req.csrfToken(),
         });
@@ -160,15 +150,25 @@ router.post(
             body,
         } = req.body;
         const post = await db.SongPost.findByPk(req.params.id);
-        post.postTitle = postTitle;
-        post.songTitle = songTitle;
-        post.artist = artist;
-        post.album = album;
-        post.genre = genre;
-        post.songLink = songLink;
-        post.body = body;
-        post.save();
-        res.redirect(`/songposts/${post.id}`);
+        const validationErrors = validationResult(req);
+        if (validationErrors.isEmpty()) {
+            post.postTitle = postTitle;
+            post.songTitle = songTitle;
+            post.artist = artist;
+            post.album = album;
+            post.genre = genre;
+            post.songLink = songLink;
+            post.body = body;
+            post.save();
+            res.redirect(`/songposts/${post.id}`);
+        } else {
+            const errors = validationErrors.array().map((error) => error.msg);
+            res.render('songpost-edit', {
+                post,
+                errors,
+                csrfToken: req.csrfToken(),
+            });
+        }
     })
 );
 
