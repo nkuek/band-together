@@ -60,8 +60,26 @@ router.put(
         );
         if (songPostNote) {
             await songPostNote.update({
-                
+
             });
+            res.json({
+                songPostNote
+            });
+        }
+        else {
+            next(songPostNote)
+        }
+    })
+);
+
+router.get(
+    '/songposts/:id/notes/:noteid/edit',
+    requireAuth,
+    asyncHandler(async (req, res, next) => {
+        const songPostNote = await db.Note.findByPk(
+            parseInt(req.params.noteid, 10)
+        );
+        if (songPostNote) {
             res.json({
                 songPostNote
             });
