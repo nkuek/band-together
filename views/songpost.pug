@@ -16,6 +16,9 @@ block content
                 h2 Song: #{songPost.songTitle} / Artist: #{songPost.artist} / Album: #{songPost.album} / Genre: #{songPost.genre}
                 h5= songPost.songLink
                 h5= songPost.body
+    div(class='songpost-note-show')
+        h1(id='comments') Comments
+        div(class="notes-container")
         div(class='songpost-note')
             form(class='notes-form' id=songPost.id)
                 input(type="hidden" name="_csrf" value=csrfToken)
@@ -24,9 +27,6 @@ block content
                 div(class='songpost-note-submit')
                     button(type='submit' class='create-post') Post
                     a(href='/' class='create-cancel') Cancel
-    div(class='songpost-note-show')
-        h1(id='comments') Comments
-        div(class="notes-container")
             if notes.length > 0
                 each note in notes
                     div(class="notes-posted") #{note.User.username}: #{note.body}
