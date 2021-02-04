@@ -32,9 +32,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
         });
 
-    document.querySelector('.note-delete').addEventListener('click', async (e) => {
+document.querySelector('.songpost-note').addEventListener('click', async (e) => {
         e.preventDefault();
-        const deleteButton = document.querySelector('.note-delete')
+        const deleteButton = e.target
 
 
         try {
@@ -114,5 +114,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
 
     });
-
 });
