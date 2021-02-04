@@ -32,29 +32,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
         });
 
-document.querySelector('.songpost-note').addEventListener('click', async (e) => {
-        e.preventDefault();
-        const deleteButton = e.target
-
-
-        try {
-            const res = await fetch(
-                deleteButton.href,
-                {
-                    method: 'DELETE',
-                    headers: { 'Content-Type': 'application/json' }
-                }
-            );
-            deleteButton.parentElement.innerHTML = ""
-        } catch (e) {
-            console.error(e);
-        }
-    });
 
     document.querySelector('.songpost-note').addEventListener('click', async (e) => {
         e.preventDefault();
         const editButton = e.target;
         const body = editButton.parentElement.value
+        if (e.target.className === 'note-delete') {
+
+            const deleteButton = e.target
+
+
+            try {
+                const res = await fetch(
+                    deleteButton.href,
+                    {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' }
+                    }
+                );
+                deleteButton.parentElement.innerHTML = ""
+            } catch (e) {
+                console.error(e);
+            }
+        }
         if (e.target.className === 'note-edit') {
 
             try {
@@ -75,7 +75,7 @@ document.querySelector('.songpost-note').addEventListener('click', async (e) => 
                 textArea.value = songPostNote.body
                 const update = document.createElement("a");
                 update.className = "note-update-button"
-                update.href='/'
+                update.href = '/'
                 update.innerHTML = "update"
                 const cancel = document.createElement("a");
                 cancel.className = "note-cancel-button"
@@ -85,7 +85,7 @@ document.querySelector('.songpost-note').addEventListener('click', async (e) => 
                 parent.appendChild(update);
                 parent.appendChild(cancel);
 
-                parent.addEventListener('click', async(e) => {
+                parent.addEventListener('click', async (e) => {
                     e.preventDefault();
                     if (e.target.className === 'note-cancel-button') {
                         parent.innerHTML = oldText
@@ -99,11 +99,11 @@ document.querySelector('.songpost-note').addEventListener('click', async (e) => 
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ body: textArea.value })
                             }
-                            );
-                            parent.innerHTML = oldText;
-                            console.log(parent.textContent, parent.value)
-                            parent.value = '';
-                            parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}`
+                        );
+                        parent.innerHTML = oldText;
+                        console.log(parent.textContent, parent.value)
+                        parent.value = '';
+                        parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}`
 
                     }
                 })
