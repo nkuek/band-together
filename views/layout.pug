@@ -12,7 +12,7 @@ html
           li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') Create Song Post
         if locals.authenticated
           span(class='login-logout')
-            a(class='user-profile' href='/users/profile') Welcome, #{user.username}! |
+            a(class='user-profile' href=`/users/${user.username}/profile`) Welcome, #{user.username}! |
           form(class='logout-form' action='/users/logout' method='post')
             button(class='logout-button' type='submit')  Logout
         else

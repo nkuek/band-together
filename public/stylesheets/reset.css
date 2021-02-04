@@ -107,12 +107,6 @@ right: 60px;
   color: #C5C6C7;
 
 }
-.home-links {
-  display: flex;
-  width: 600px;
-  height: auto;
-  text-decoration: none;
-}
 
 /* Login Styling */
 .login-form {
