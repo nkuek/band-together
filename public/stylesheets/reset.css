@@ -56,7 +56,7 @@ h1 {
 }
 .user-profile {
 position: relative;
-right: 70px;
+right: 60px;
 }
 .logout-button {
   position: relative;
@@ -69,6 +69,7 @@ right: 70px;
 .logout-button:hover {
   background-color: #66FCF1;
   cursor: pointer;
+  color: black;
 }
 .logout-form {
   position: absolute;
@@ -86,7 +87,7 @@ right: 70px;
 }
 .home-posts {
   background-color: #0B0C10;
-  color: #C5C6C7;
+
   text-align: left;
   padding: 20px;
   margin: 10px auto 10px auto;
@@ -99,10 +100,15 @@ right: 70px;
   color: #66FCF1;
   font-size: 24px;
 }
-.home-posts p {
+.home-posts h2 p {
   font-size: 12px;
+  color: #C5C6C7;
+
 }
-a {
+div a {
+  display: flex;
+  width: 600px;
+  height: auto;
   text-decoration: none;
 }
 
@@ -130,7 +136,7 @@ a {
 
 /* Form controlled styling */
 .form-control {
-  border: 1px solid #ccc;
+  border: 1px solid;
   border-radius: 10px 10px;
   box-sizing: border-box;
   border-style: none;
@@ -193,6 +199,7 @@ a {
 .all-posts:hover {
   color: #818699;
 }
+/* Delete and edit buttons */
 .delete-post {
   float: right;
   position: relative;
@@ -224,4 +231,101 @@ a {
 .edit-post:hover {
   background-color: #45A29E;
   cursor: pointer;
+}
+/* Users songpost section */
+.entire-post {
+  background-color: #14161a ;
+  margin: 10px 10px 10px 10px;
+  text-align: left;
+  padding: 20px;
+}
+.entire-post h1 {
+  color: #66FCF1;
+}
+.entire-post h2 {
+  margin: 10px 0 10px 0;
+}
+/* Post comment area */
+.songpost-note {
+  text-align: center;
+}
+.songpost-note label {
+  font-size: 20px;
+}
+.noteText {
+  width: 90%;
+  border-radius: 10px 10px;
+  background-color: #DFF0F0;
+  margin-top: 8px;
+}
+/* Submit and cancel button for post comment */
+.songpost-note-submit {
+  padding: 20px;
+}
+.create-post {
+  background-color: #66FCF1;
+  color: black;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.create-post:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}
+.create-cancel {
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.create-cancel:hover {
+  background-color: #45A29E;
+}
+/* Comments Shown */
+.songpost-note-show {
+  background-color: #0B0C10;
+  color: #DFF0F0;
+  padding: 20px;
+  margin: 0px auto 0px auto;
+  width: 800px;
+}
+#comments {
+  color: #66FCF1;
+  margin-bottom: 10px;
+}
+.notes-container {
+  background-color: #14161a;
+}
+.notes-posted {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Songpost create form */
+.songpost-create-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.songpost-create-form label {
+  font-size: 20px;
+}
+.songpost-create-textarea {
+  width: 100%;
+  border-radius: 10px 10px;
+  background-color: #DFF0F0;
+  margin-top: 8px;
+}
+.create-buttons {
+  padding: 10px;
 }
