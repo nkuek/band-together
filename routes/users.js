@@ -132,7 +132,6 @@ router.post(
         }
         console.log(errors);
         res.render('login', {
-            title: 'Login',
             errors,
             username,
             csrfToken: req.csrfToken(),
