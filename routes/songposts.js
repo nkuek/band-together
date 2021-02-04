@@ -86,7 +86,7 @@ router.get(
             res.redirect('/users/login');
         }
         const songPost = await db.SongPost.findByPk(req.params.id, {
-            include:db.User
+            include: db.User,
         });
         const notes = await db.Note.findAll({
             where: { songPostId: req.params.id },
@@ -115,10 +115,10 @@ router.get(
                 });
             }
             await songPost.destroy();
-            res.status(204);
-            res.redirect('/');
+            return res.redirect('/');
+        } else {
+            next(songPost);
         }
-        next(songPost);
     })
 );
 
@@ -126,21 +126,11 @@ router.get(
     '/:id/edit',
     requireAuth,
     csrfProtection,
-    songPostValidation,
     asyncHandler(async (req, res) => {
-        const validationErrors = validationResult(req);
-        const postInformation = await db.SongPost.findByPk(req.params.id);
+        const post = await db.SongPost.findByPk(req.params.id);
 
-        if (validationErrors.isEmpty()) {
-            await songPost.save();
-            res.render('songpost-edit', {
-                postInformation,
-                csrfToken: req.csrfToken(),
-            });
-        }
-        res.render(`/songposts/${songPost.id}/edit`, {
-            validationErrors,
-            postInformation,
+        res.render('songpost-edit', {
+            post,
             csrfToken: req.csrfToken(),
         });
     })
@@ -162,15 +152,25 @@ router.post(
             body,
         } = req.body;
         const post = await db.SongPost.findByPk(req.params.id);
-        post.postTitle = postTitle;
-        post.songTitle = songTitle;
-        post.artist = artist;
-        post.album = album;
-        post.genre = genre;
-        post.songLink = songLink;
-        post.body = body;
-        post.save();
-        res.redirect(`/songposts/${post.id}`);
+        const validationErrors = validationResult(req);
+        if (validationErrors.isEmpty()) {
+            post.postTitle = postTitle;
+            post.songTitle = songTitle;
+            post.artist = artist;
+            post.album = album;
+            post.genre = genre;
+            post.songLink = songLink;
+            post.body = body;
+            post.save();
+            res.redirect(`/songposts/${post.id}`);
+        } else {
+            const errors = validationErrors.array().map((error) => error.msg);
+            res.render('songpost-edit', {
+                post,
+                errors,
+                csrfToken: req.csrfToken(),
+            });
+        }
     })
 );
 

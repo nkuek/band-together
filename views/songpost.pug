@@ -22,7 +22,6 @@ block content
     div(class='songpost-note-show')
         h1(id='comments') Comments
         div(class="notes-container")
-        div(class='songpost-note')
             form(class='notes-form' id=songPost.id)
                 input(type="hidden" name="_csrf" value=csrfToken)
                 label(for="postComment") Post Comment
@@ -30,8 +29,10 @@ block content
                 div(class='songpost-note-submit')
                     button(type='submit' class='create-post') Post
                     a(href='/' class='create-cancel') Cancel
+        div(class='songpost-note')
             if notes.length > 0
                 each note in notes
+
                     div(class="notes-posted") #{note.User.username}: #{note.body}
                     div(class="dot-container")
                         div(class="dot-more")
@@ -48,5 +49,6 @@ block content
                                         a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit more-menu-btn") Edit
                                     li(class="more-menu-item" role="presentation")
                                         a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete more-menu-btn") Delete
+            
             else
                 h2(id='no-comment') There are no comments yet! Start a discussion!
