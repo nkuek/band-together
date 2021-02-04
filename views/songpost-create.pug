@@ -4,16 +4,17 @@ include utils
 
 block content
     div(class="songpost-create-form")
-        form(action='/songposts' method='post')
+        +validationErrorSummary(errors)
+        form(action=`/songposts/new` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            +textField('Post Title', 'postTitle', postTitle)
-            +textField('Song Title', 'songTitle', songTitle)
-            +textField('Artist', 'artist', artist)
-            +textField('Album', 'album', album)
-            +textField('Genre', 'genre', genre)
-            +textField('Song Link', 'songLink', songLink)
+            +textField('Post Title', 'postTitle')
+            +textField('Song Title', 'songTitle', songPost.songTitle)
+            +textField('Artist', 'artist', songPost.artist)
+            +textField('Album', 'album', songPost.album)
+            +textField('Genre', 'genre', songPost.genre)
+            +textField('Song Link', 'songLink', songPost.songLink)
             label(for="Post Text") Post Text
-            textarea(class="songpost-create-textarea" name='body', cols="30", rows="10")
+            textarea(class="songpost-create-textarea" name='body', cols="30", rows="10" value=songPost.body)
             div(class='create-buttons')
                 button(type='submit' class='create-post') Post
                 a(href='/' class='create-cancel') Cancel

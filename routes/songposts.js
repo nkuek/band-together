@@ -6,7 +6,8 @@ const db = require('../db/models/');
 const router = express.Router();
 
 router.get('/new', csrfProtection, requireAuth, (req, res) => {
-    res.render('songpost-create', { csrfToken: req.csrfToken() });
+    const songPost = db.SongPost.build();
+    res.render('songpost-create', { csrfToken: req.csrfToken(), songPost });
 });
 
 songPostValidation = [
@@ -37,7 +38,7 @@ songPostValidation = [
         .withMessage('Genre cannot be longer than 50 characters'),
 ];
 router.post(
-    '/',
+    '/new',
     csrfProtection,
     songPostValidation,
     asyncHandler(async (req, res) => {
@@ -65,10 +66,15 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            console.log(songPost);
             res.redirect(`/songposts/${songPost.id}`);
+        } else {
+            const errors = validationErrors.array().map((err) => err.msg);
+            res.render('songpost-create', {
+                songPost,
+                errors,
+                csrfToken: req.csrfToken(),
+            });
         }
-        res.redirect('/songposts/new', { songPost });
     })
 );
 
@@ -100,7 +106,6 @@ router.get(
         const songPost = await db.SongPost.findByPk(
             parseInt(req.params.id, 10)
         );
-        console.log(songPostNotes);
         if (songPost) {
             if (songPostNotes) {
                 songPostNotes.forEach((post) => {

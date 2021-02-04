@@ -4,6 +4,7 @@ include utils
 
 block content
     div(class="songpost-create-form")
+        +validationErrorSummary(validationErrors)
         form(action=`/songposts/${postInformation.id}/edit` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             +textField('Post Title', 'postTitle', postInformation.postTitle)
