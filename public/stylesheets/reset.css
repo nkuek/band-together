@@ -2,6 +2,20 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #1F2833;
+  overflow-x: hidden;
+}
+
+/* SCROLL BAR CAUSE WHY NOT */
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #66FCF1;
 }
 
 a {
@@ -29,24 +43,54 @@ h1 {
 
 /* Navbar style setup */
 .navbar {
-  padding: 30px 0 30px 0;
+  padding: 20px 0 20px 0;
   background-color: #0B0C10;
   color: #C5C6C7;
 }
 .navbar-home {
   padding: 20px;
+  font-size: 20px;
+}
+.navbar-home:hover {
+  background-color: #3b3f4d;
 }
 .login-logout {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
-  padding: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
 }
-.navbar-items {
+.logout-button {
+  position: relative;
+  bottom: 10px;
+  left: 5px;
+  color: #C5C6C7;
+  background-color: #3b3f4d;
+  border-radius: 4px;
+  font-size: 15px;
+  border: none;
+}
+.logout-form {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.user-register {
+  padding-right: 10px;
+
+}
+.navbar-elements {
+  position: relative;
+  right: 20px;
+  bottom: 5px;
   list-style: none;
   float: right;
-  display: inline;
-  padding-right: 20px; ;
+}
+.nav-link {
+  padding: 10px;
+  height: 25px;
+  width: 140px;
 }
 .navbar-home, .nav-link, .user-login, .user-register, .user-profile {
   text-decoration: none;
@@ -58,24 +102,10 @@ h1 {
 position: relative;
 right: 60px;
 }
-.logout-button {
-  position: relative;
-  color: #C5C6C7;
-  background-color: #3b3f4d;
-  border-radius: 4px;
-  font-size: 15px;
-  border: none;
-}
 .logout-button:hover {
   background-color: #66FCF1;
   cursor: pointer;
   color: black;
-}
-.logout-form {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 20px;
 }
 
 /* Home page styling */
@@ -187,6 +217,8 @@ right: 60px;
 /* Songpost Styling */
 .songpost-post {
   background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color: #DFF0F0;
   width: 800px;
   margin: 30px auto 30px auto;
@@ -316,6 +348,8 @@ right: 60px;
 /* Comments Shown */
 .songpost-note-show {
   background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color: #DFF0F0;
   padding: 20px;
   margin: 0px auto 0px auto;
@@ -332,6 +366,7 @@ right: 60px;
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 /* Songpost create form */
