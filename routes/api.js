@@ -30,4 +30,17 @@ router.post(
     })
 );
 
+router.delete(
+    '/api/songposts/:id/notes/:noteid/delete',
+    requireAuth,
+    asyncHandler(async(req, res, next) => {
+        const songPost = await db.SongPost.findByPk(parseInt(req.params.id, 10));
+        if(songPost){
+            await songPost.destroy()
+            res.status(204).end()
+        }
+        next(songPost)
+    })
+)
+
 module.exports = router;

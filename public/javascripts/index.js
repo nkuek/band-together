@@ -29,17 +29,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 console.error(e);
             }
         });
-
-    document
-    .querySelector('.delete-post')
-    .addEventListener('click', async (e) => {
-        console.log('Hello from line 35')
-         
-        try{
-            const res = await fetch(`http://localhost:8080/api/songposts/${songpostPost.id}`)
-        } catch (e){
-            console.error(e)
-        }
-
-    })
+        
 });
