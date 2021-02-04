@@ -85,7 +85,9 @@ router.get(
         if (!res.locals.authenticated) {
             res.redirect('/users/login');
         }
-        const songPost = await db.SongPost.findByPk(req.params.id);
+        const songPost = await db.SongPost.findByPk(req.params.id, {
+            include:db.User
+        });
         const notes = await db.Note.findAll({
             where: { songPostId: req.params.id },
             order: [['createdAt', 'DESC']],
