@@ -188,8 +188,12 @@ right: 60px;
   color: #DFF0F0;
   width: 800px;
   margin: 30px auto 30px auto;
+  padding-bottom: 20px;
 }
 .all-posts {
+  padding: 10px;
+}
+.songpost-post p {
   padding: 10px;
 }
 .all-posts:hover {
@@ -301,6 +305,7 @@ right: 60px;
 .notes-posted {
   padding-top: 10px;
   padding-bottom: 10px;
+  text-align: left;
 }
 
 /* Songpost create form */
