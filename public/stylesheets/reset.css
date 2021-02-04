@@ -45,6 +45,9 @@ h1 {
 .navbar {
   padding: 20px 0 20px 0;
   background-color: #0B0C10;
+  border-bottom: #C5C6C7 solid 1px;
+  border-top: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color: #C5C6C7;
 }
 .navbar-home {
@@ -88,15 +91,18 @@ h1 {
   float: right;
 }
 .nav-link {
-  padding: 10px;
+  padding: 5px;
   height: 25px;
   width: 140px;
+}
+.nav-link:hover {
+  background-color: #3b3f4d9d;
 }
 .navbar-home, .nav-link, .user-login, .user-register, .user-profile {
   text-decoration: none;
 }
 .navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
-  color: #45A29E;
+  color: #66FCF1;
 }
 .user-profile {
 position: relative;
@@ -143,6 +149,8 @@ right: 60px;
 /* Login Styling */
 .login-form {
   background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color:  #C5C6C7;
   text-align: center;
   margin: 30px auto 30px auto;
@@ -154,6 +162,8 @@ right: 60px;
 /* Register styling */
 .register-form {
   background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color:  #C5C6C7;
   text-align: center;
   margin: 30px auto 30px auto;
@@ -373,6 +383,8 @@ right: 60px;
 /* Songpost create form */
 .songpost-create-form {
   background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
   color:  #C5C6C7;
   text-align: center;
   margin: 30px auto 30px auto;
@@ -392,6 +404,23 @@ right: 60px;
 .create-buttons {
   padding: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* THE 3 DOTS */
 .dot-container {
@@ -453,12 +482,12 @@ right: 60px;
 }
 
 .more-menu-caret {
-  position: absolute;
+  /* position: absolute;
   top: -10px;
   left: 12px;
   width: 18px;
   height: 10px;
-  float: left;
+  float: left; */
   overflow: hidden;
 }
 
