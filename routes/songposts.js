@@ -82,7 +82,7 @@ router.get(
             order: [['createdAt', 'DESC']],
             include: db.User,
         });
-
+        console.log(notes.length);
         res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });
     })
 );
@@ -100,9 +100,6 @@ router.get(
         );
         console.log(songPostNotes);
         if (songPost) {
-            if (songPostNotes) {
-                songPostNotes.forEach(async (note) => await note.destroy());
-            }
             await songPost.destroy();
             res.status(204);
             res.redirect('/');

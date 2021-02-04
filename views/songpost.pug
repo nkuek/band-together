@@ -27,5 +27,8 @@ block content
     div(class='songpost-note-show')
         h1(id='comments') Comments
         div(class="notes-container")
-            each note in notes
-                div(class="notes-posted") #{note.User.username}: #{note.body}
+            if notes.length > 0
+                each note in notes
+                    div(class="notes-posted") #{note.User.username}: #{note.body}
+            else
+                h2 There are no comments yet! Start a discussion!
