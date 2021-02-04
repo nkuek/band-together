@@ -20,11 +20,11 @@ block content
                 a(href=songPost.songLink class="link-to-song") Link To Song
                 h5(class='songpost-body')= songPost.body
     div(class='songpost-note-show')
-        h1(id='comments') Comments
+        h1(id='comments') Notes
         div(class="notes-container")
             form(class='notes-form' id=songPost.id)
                 input(type="hidden" name="_csrf" value=csrfToken)
-                label(for="postComment") Post Comment
+                label(for="postComment") Post Notes
                 textarea(class="noteText" name="postComment", cols="40", rows="10" value=body)
                 div(class='songpost-note-submit')
                     button(type='submit' class='create-post') Post
@@ -36,4 +36,4 @@ block content
                         a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit") Edit
                         a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
             else
-                h2(id='no-comment') There are no comments yet! Start a discussion!
+                h2(id='no-comment') There are no notes yet! Start a discussion!
