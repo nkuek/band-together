@@ -3,16 +3,17 @@ extends layout
 include utils
 
 block content
-    form(action='/songposts' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +textField('Post Title', 'postTitle', postTitle)
-        +textField('Song Title', 'songTitle', songTitle)
-        +textField('Artist', 'artist', artist)
-        +textField('Album', 'album', album)
-        +textField('Genre', 'genre', genre)
-        +textField('Song Link', 'songLink', songLink)
-        label(for="Post Text") Post Text
-        textarea(name="Post Text", cols="30", rows="10", value=body)
-        div(class='create-buttons')
-            button(type='submit' class='create-post') Post
-            a(href='/' class='create-cancel') Cancel
+    div(class="songpost-create-form")
+        form(action='/songposts' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +textField('Post Title', 'postTitle', postTitle)
+            +textField('Song Title', 'songTitle', songTitle)
+            +textField('Artist', 'artist', artist)
+            +textField('Album', 'album', album)
+            +textField('Genre', 'genre', genre)
+            +textField('Song Link', 'songLink', songLink)
+            label(for="Post Text") Post Text
+            textarea(class="songpost-create-textarea" name='body', cols="30", rows="10")
+            div(class='create-buttons')
+                button(type='submit' class='create-post') Post
+                a(href='/' class='create-cancel') Cancel

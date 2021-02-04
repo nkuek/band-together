@@ -65,16 +65,106 @@ router.post(
         });
         if (validationErrors.isEmpty()) {
             await songPost.save();
-            console.log(songPost)
+            console.log(songPost);
             res.redirect(`/songposts/${songPost.id}`);
         }
-        res.redirect('/songposts/new', { songPost })
+        res.redirect('/songposts/new', { songPost });
     })
 );
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-    const songPost = await db.SongPost.findByPk(req.params.id)
-    res.render('songpost', {songPost})
-}));
+router.get(
+    '/:id(\\d+)',
+    csrfProtection,
+    asyncHandler(async (req, res) => {
+        if (!res.locals.authenticated) {
+            res.redirect('/users/login');
+        }
+        const songPost = await db.SongPost.findByPk(req.params.id);
+        const notes = await db.Note.findAll({
+            where: { songPostId: req.params.id },
+            order: [['createdAt', 'DESC']],
+            include: db.User,
+        });
+        res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });
+    })
+);
+
+router.get(
+    '/:id/delete',
+    requireAuth,
+    asyncHandler(async (req, res, next) => {
+        const songPostNotes = await db.Note.findAll({
+            where: { songPostId: req.params.id },
+            include: db.SongPost,
+        });
+        const songPost = await db.SongPost.findByPk(
+            parseInt(req.params.id, 10)
+        );
+        console.log(songPostNotes);
+        if (songPost) {
+            if (songPostNotes) {
+                songPostNotes.forEach((post) => {
+                    post.destroy();
+                });
+            }
+            await songPost.destroy();
+            res.status(204);
+            res.redirect('/');
+        }
+        next(songPost);
+    })
+);
+
+router.get(
+    '/:id/edit',
+    requireAuth,
+    csrfProtection,
+    songPostValidation,
+    asyncHandler(async (req, res) => {
+        const validationErrors = validationResult(req);
+        const postInformation = await db.SongPost.findByPk(req.params.id);
+
+        if (validationErrors.isEmpty()) {
+            await songPost.save();
+            res.render('songpost-edit', {
+                postInformation,
+                csrfToken: req.csrfToken(),
+            });
+        }
+        res.render(`/songposts/${songPost.id}/edit`, {
+            validationErrors,
+            postInformation,
+            csrfToken: req.csrfToken(),
+        });
+    })
+);
+
+router.post(
+    '/:id/edit',
+    requireAuth,
+    csrfProtection,
+    songPostValidation,
+    asyncHandler(async (req, res) => {
+        const {
+            postTitle,
+            songTitle,
+            artist,
+            album,
+            genre,
+            songLink,
+            body,
+        } = req.body;
+        const post = await db.SongPost.findByPk(req.params.id);
+        post.postTitle = postTitle;
+        post.songTitle = songTitle;
+        post.artist = artist;
+        post.album = album;
+        post.genre = genre;
+        post.songLink = songLink;
+        post.body = body;
+        post.save();
+        res.redirect(`/songposts/${post.id}`);
+    })
+);
 
 module.exports = router;

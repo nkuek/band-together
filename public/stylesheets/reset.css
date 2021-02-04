@@ -1,10 +1,12 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1F2833;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 * {
@@ -15,7 +17,7 @@ h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
 body, header, nav {
   font-size: 1rem;
   color: inherit;
-  background-color: transparent;
+  /* background-color: transparent; */
   margin: 0;
   padding: 0;
   outline: 0;
@@ -24,4 +26,307 @@ body, header, nav {
 
 h1 {
   font-size: 2rem;
+}
+
+/* Navbar style setup */
+.navbar {
+  padding: 30px 0 30px 0;
+  background-color: #0B0C10;
+  color: #C5C6C7;
+}
+.navbar-home {
+  padding: 20px;
+}
+.login-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+.navbar-items {
+  list-style: none;
+  float: right;
+  display: inline;
+  padding-right: 20px; ;
+}
+.navbar-home, .nav-link, .user-login, .user-register, .user-profile {
+  text-decoration: none;
+}
+.navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
+  color: #45A29E;
+}
+.user-profile {
+position: relative;
+right: 60px;
+}
+.logout-button {
+  position: relative;
+  color: #C5C6C7;
+  background-color: #3b3f4d;
+  border-radius: 4px;
+  font-size: 15px;
+  border: none;
+}
+.logout-button:hover {
+  background-color: #66FCF1;
+  cursor: pointer;
+  color: black;
+}
+.logout-form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+
+/* Home page styling */
+#recent-dis {
+  text-align: center;
+  color: #C5C6C7;
+  font-size: 30px;
+  margin-top: 20px;
+}
+.home-posts {
+  background-color: #0B0C10;
+  border: #C5C6C7 solid 1px;
+  box-shadow: 5px 10px 8px #14161a;
+  text-align: left;
+  padding: 20px;
+  margin: 20px auto 20px auto;
+  width: 600px;
+}
+.home-posts:hover {
+  background-color: #3b3f4d;
+}
+.home-posts h2 {
+  color: #66FCF1;
+  font-size: 24px;
+}
+.home-posts h2 p {
+  font-size: 12px;
+  color: #C5C6C7;
+
+}
+
+/* Login Styling */
+.login-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Register styling */
+.register-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Form controlled styling */
+.form-control {
+  border: 1px solid;
+  border-radius: 10px 10px;
+  box-sizing: border-box;
+  border-style: none;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  background-color: #DFF0F0;
+  font-size: 20px;
+  width: 100%;
+}
+.form-group {
+  font-size: 20px;
+  padding: 7px;
+}
+
+/* Login and register submit/cancel buttons */
+.login-register-buttons {
+  padding: 20px;
+}
+.login-register-submit {
+  background-color:   #66FCF1;
+  color: black;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.login-register-submit:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}
+.login-register-cancel {
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.login-register-cancel:hover {
+  background-color: #45A29E;
+}
+
+/* If not account styling */
+.no-account:hover {
+  color: #818699;
+}
+
+/* Songpost Styling */
+.songpost-post {
+  background-color: #0B0C10;
+  color: #DFF0F0;
+  width: 800px;
+  margin: 30px auto 30px auto;
+  padding-bottom: 20px;
+}
+.all-posts {
+  padding: 10px;
+}
+.songpost-post p {
+  padding: 10px;
+}
+.all-posts:hover {
+  color: #818699;
+}
+/* Delete and edit buttons */
+.delete-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 6px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.delete-post:hover {
+ background-color: #45A29E;
+ cursor: pointer;
+}
+.edit-post {
+  float: right;
+  position: relative;
+  bottom: 48px;
+  right: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.edit-post:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}
+/* Users songpost section */
+.entire-post {
+  background-color: #14161a ;
+  margin: 10px 10px 10px 10px;
+  text-align: left;
+  padding: 20px;
+}
+.entire-post h1 {
+  color: #66FCF1;
+}
+.entire-post h2 {
+  margin: 10px 0 10px 0;
+}
+/* Post comment area */
+.songpost-note {
+  text-align: center;
+}
+.songpost-note label {
+  font-size: 20px;
+}
+.noteText {
+  width: 90%;
+  border-radius: 10px 10px;
+  background-color: #DFF0F0;
+  margin-top: 8px;
+}
+/* Submit and cancel button for post comment */
+.songpost-note-submit {
+  padding: 20px;
+}
+.create-post {
+  background-color: #66FCF1;
+  color: black;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.create-post:hover {
+  background-color: #45A29E;
+  cursor: pointer;
+}
+.create-cancel {
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 10px;
+  border-radius: 5px 5px;
+  margin: 0 10px 0 10px;
+}
+.create-cancel:hover {
+  background-color: #45A29E;
+}
+/* Comments Shown */
+.songpost-note-show {
+  background-color: #0B0C10;
+  color: #DFF0F0;
+  padding: 20px;
+  margin: 0px auto 0px auto;
+  width: 800px;
+}
+#comments {
+  color: #66FCF1;
+  margin-bottom: 10px;
+}
+.notes-container {
+  background-color: #14161a;
+}
+.notes-posted {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+/* Songpost create form */
+.songpost-create-form {
+  background-color: #0B0C10;
+  color:  #C5C6C7;
+  text-align: center;
+  margin: 30px auto 30px auto;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.songpost-create-form label {
+  font-size: 20px;
+}
+.songpost-create-textarea {
+  width: 100%;
+  border-radius: 10px 10px;
+  background-color: #DFF0F0;
+  margin-top: 8px;
+}
+.create-buttons {
+  padding: 10px;
 }
