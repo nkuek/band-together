@@ -31,4 +31,4 @@ block content
                 each note in notes
                     div(class="notes-posted") #{note.User.username}: #{note.body}
             else
-                h2 There are no comments yet! Start a discussion!
+                h2(id='no-comment') There are no comments yet! Start a discussion!
