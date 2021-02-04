@@ -102,6 +102,11 @@ router.get(
         );
         console.log(songPostNotes);
         if (songPost) {
+            if (songPostNotes) {
+                songPostNotes.forEach((post) => {
+                    post.destroy();
+                });
+            }
             await songPost.destroy();
             res.status(204);
             res.redirect('/');
@@ -114,9 +119,20 @@ router.get(
     '/:id/edit',
     requireAuth,
     csrfProtection,
+    songPostValidation,
     asyncHandler(async (req, res) => {
+        const validationErrors = validationResult(req);
         const postInformation = await db.SongPost.findByPk(req.params.id);
-        res.render('songpost-edit', {
+
+        if (validationErrors.isEmpty()) {
+            await songPost.save();
+            res.render('songpost-edit', {
+                postInformation,
+                csrfToken: req.csrfToken(),
+            });
+        }
+        res.render(`/songposts/${songPost.id}/edit`, {
+            validationErrors,
             postInformation,
             csrfToken: req.csrfToken(),
         });
@@ -127,6 +143,7 @@ router.post(
     '/:id/edit',
     requireAuth,
     csrfProtection,
+    songPostValidation,
     asyncHandler(async (req, res) => {
         const {
             postTitle,
