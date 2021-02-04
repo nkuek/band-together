@@ -6,6 +6,7 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 * {
@@ -106,7 +107,7 @@ right: 60px;
   color: #C5C6C7;
 
 }
-div a {
+.home-links {
   display: flex;
   width: 600px;
   height: auto;
