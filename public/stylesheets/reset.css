@@ -596,3 +596,10 @@ right: 60px;
 .note-delete:hover {
   background-color: #45A29E;
 }
+
+.search-result {
+  text-align: center;
+  color: #C5C6C7;
+  font-size: 30px;
+  margin-top: 20px;
+}
