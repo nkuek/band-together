@@ -26,10 +26,10 @@
 - AJAX
 
 ## Our Site!
-###https://band-together-aa.herokuapp.com/
+### https://band-together-aa.herokuapp.com/
 
 ## Our Wiki
-###https://github.com/nkuek/band-together/wiki
+### https://github.com/nkuek/band-together/wiki
 
 ## Gold Stars
 - Notes (comment section)
