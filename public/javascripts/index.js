@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 editBtn.href = `/api/songposts/${note.songPostId}/notes/${note.id}/edit`;
                 editBtn.className = 'note-edit';
                 deleteBtn.className = 'note-delete';
-                editBtn.innerText = 'Edit';
+                editBtn.innerText = ' Edit ';
                 deleteBtn.innerText = 'Delete';
                 deleteBtn.href = `/api/songposts/${note.songPostId}/notes/${note.id}/delete`;
                 newNote.appendChild(editBtn);
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         JSON.stringify(parent.innerHTML)
                     );
 
-                    const htmlElements = e.target.parentElement.querySeldeleteButton.hrefectorAll(
+                    const htmlElements = e.target.parentElement.querySelectorAll(
                         'a'
                     );
                     let htmlString = '';
@@ -78,19 +78,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         htmlString += htmlElements[i].outerHTML;
                     }
                     editButton.parentElement.innerHTML = `<textarea class="text-area">${songPostNote.body}</textarea> <a href="/" class='note-update-button'>Update <a href="/" class="note-cancel-button">Cancel`;
-                    // const textArea = document.createElement('textarea');
-                    // textArea.value = songPostNote.body;
-                    // const update = document.createElement('a');
-                    // update.className = 'note-update-button';
-                    // update.href = '/';
-                    // update.innerHTML = 'update';
-                    // const cancel = document.createElement('a');
-                    // cancel.className = 'note-cancel-button';
-                    // cancel.href = '/';deleteButton.href
-                    // cancel.innerHTML = 'cancel';
-                    // parent.appendChild(textArea);
-                    // parent.appendChild(update);
-                    // parent.appendChild(cancel);
 
                     parent.addEventListener('click', async (e) => {
                         e.preventDefault();
@@ -109,7 +96,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
                                         },
                                     }
                                 );
-                                editButton.parentElement.remove();
+                                document
+                                    .getElementById(`${songPostNote.id}`)
+                                    .remove();
                             } else {
                                 const res = await fetch(editButton.href, {
                                     method: 'PUT',
