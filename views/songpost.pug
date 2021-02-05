@@ -33,7 +33,8 @@ block content
             if notes.length > 0
                 each note in notes
                     div(class="notes-posted" id=`${note.id}`) #{note.User.username}: #{note.body}
-                        a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit") Edit
-                        a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
+                        if locals.user.id === note.userId
+                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit")= ' Edit '
+                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
             else
                 h2(id='no-comment') There are no notes yet! Start a discussion!

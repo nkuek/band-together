@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
     h1(class="profile-heading") Welcome, #{user.username}
         each post in songPosts
             div(class='home-posts')
@@ -8,3 +9,4 @@ block content
                     h2= post.postTitle
                         p Song: #{post.songTitle} / Artist: #{post.artist}
                         p= songPost.createAt
+

@@ -54,10 +54,8 @@ const userValidation = [
             if (value !== req.body.password) {
                 throw new Error('Passwords must match');
             }
-            return true;
         }),
 ];
-
 router.post(
     '/register',
     csrfProtection,
@@ -153,6 +151,16 @@ router.post('/logout', (req, res) => {
     });
 });
 
-router.get('/:username/');
+router.get(
+    '/:username/',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const user = await db.User.findOne({
+            where: { username: req.params.username },
+            include: db.SongPost,
+        });
+        res.render('profile', { userProfile: user });
+    })
+);
 
 module.exports = router;
