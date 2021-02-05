@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         JSON.stringify(parent.innerHTML)
                     );
 
-                    const htmlElements = e.target.parentElement.querySelectorAll(
+                    const htmlElements = e.target.parentElement.querySeldeleteButton.hrefectorAll(
                         'a'
                     );
                     let htmlString = '';
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     // update.innerHTML = 'update';
                     // const cancel = document.createElement('a');
                     // cancel.className = 'note-cancel-button';
-                    // cancel.href = '/';
+                    // cancel.href = '/';deleteButton.href
                     // cancel.innerHTML = 'cancel';
                     // parent.appendChild(textArea);
                     // parent.appendChild(update);
@@ -99,13 +99,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             parent.innerHTML = oldText;
                         }
                         if (e.target.className === 'note-update-button') {
-                            console.log(editButton.href);
-                            console.log(textArea.value);
-                            const res = await fetch(editButton.href, {
-                                method: 'PUT',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ body: textArea.value }),
-                            });
+                            if (!textArea.value) {
+                                const res = await fetch(
+                                    `/api/songposts/${songPostNote.songPostId}/notes/${songPostNote.id}/delete`,
+                                    {
+                                        method: 'DELETE',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                    }
+                                );
+                                editButton.parentElement.remove();
+                            } else {
+                                const res = await fetch(editButton.href, {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({
+                                        body: textArea.value,
+                                    }),
+                                });
+                            }
                             parent.innerHTML = oldText;
                             parent.value = '';
                             parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}${htmlString}`;
