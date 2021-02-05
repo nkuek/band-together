@@ -34,59 +34,63 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document
         .querySelector('.more-menu-items')
         .addEventListener('click', async (e) => {
-            console.log(e.target);
             e.preventDefault();
             const editButton = e.target;
+            const data = await fetch(editButton.href, {
+                method: 'GET',
+            });
+
+            const { songPostNote } = await data.json();
             if (e.target.className === 'note-delete') {
                 const deleteButton = e.target;
                 try {
-                    const res = await fetch(deleteButton.href, {
+                    await fetch(deleteButton.href, {
                         method: 'DELETE',
                         headers: { 'Content-Type': 'application/json' },
                     });
-                    deleteButton.parentElement.innerHTML = '';
+                    document.getElementById(songPostNote.id).remove();
+                    document.querySelector('.container').remove();
                 } catch (e) {
                     console.error(e);
                 }
             }
             if (e.target.className === 'note-edit') {
                 try {
-                    console.log(editButton);
-                    const data = await fetch(editButton.href, {
-                        method: 'GET',
-                    });
-
-                    const { songPostNote } = await data.json();
-                    const parent = editButton.parentElement;
-                    const oldText = JSON.parse(
-                        JSON.stringify(parent.innerHTML)
+                    const songPostUpdate = document.querySelector(
+                        '.songpost-note'
                     );
-                    const htmlElements = e.target.parentElement.querySelectorAll(
-                        'a'
-                    );
-                    let htmlString = '';
-                    for (let i = 0; i < 2; i++) {
-                        htmlString += htmlElements[i].outerHTML;
-                    }
-                    editButton.parentElement.innerHTML = '';
-                    const textArea = document.createElement('textarea');
-                    textArea.value = songPostNote.body;
-                    const update = document.createElement('a');
-                    update.className = 'note-update-button';
-                    update.href = '/';
-                    update.innerHTML = 'update';
-                    const cancel = document.createElement('a');
-                    cancel.className = 'note-cancel-button';
-                    cancel.href = '/';
-                    cancel.innerHTML = 'cancel';
-                    parent.appendChild(textArea);
-                    parent.appendChild(update);
-                    parent.appendChild(cancel);
 
-                    parent.addEventListener('click', async (e) => {
+                    const oldText = songPostNote.body;
+                    const songPost = document.getElementById(songPostNote.id);
+                    songPost.innerHTML = `<textarea class="text-area">${songPostNote.body}</textarea> <a href="/" class='note-update-button'>Update <a href="/" class="note-cancel-button">Cancel`;
+                    // const update = document.createElement('a');
+                    // update.className = 'note-update-button';
+                    // update.href = '/';
+                    // update.innerHTML = 'update';
+                    // const cancel = document.createElement('a');
+                    // cancel.className = 'note-cancel-button';
+                    // cancel.href = '/';
+                    // cancel.innerHTML = 'cancel';
+                    // const parent = editButton.parentElement;
+
+                    // const htmlElements = e.target.parentElement.querySelectorAll(
+                    //     'a'
+                    // );
+                    // let htmlString = '';
+                    // for (let i = 0; i < 2; i++) {
+                    //     htmlString += htmlElements[i].outerHTML;
+                    // }
+                    // editButton.parentElement.innerHTML = '';
+                    // const textArea = document.createElement('textarea');
+                    // textArea.value = songPostNote.body;
+                    // songPost.appendChild(update);
+                    // songPost.appendChild(cancel);
+
+                    songPostUpdate.addEventListener('click', async (e) => {
                         e.preventDefault();
+                        const textArea = document.querySelector('.text-area');
                         if (e.target.className === 'note-cancel-button') {
-                            parent.innerHTML = oldText;
+                            songPostUpdate.innerHTML = oldText;
                         }
                         if (e.target.className === 'note-update-button') {
                             const res = await fetch(editButton.href, {
@@ -94,9 +98,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ body: textArea.value }),
                             });
-                            parent.innerHTML = oldText;
-                            parent.value = '';
-                            parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}${htmlString}`;
+                            songPost.innerHTML = oldText;
+                            songPost.value = '';
+                            songPost.innerHTML = `${songPostNote.User.username}: ${textArea.value}`;
                         }
                     });
                 } catch (e) {

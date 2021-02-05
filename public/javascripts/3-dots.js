@@ -1,28 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     var el = document.querySelector('.more');
-    var btn = el.querySelector('.more-btn');
-    var menu = el.querySelector('.more-menu');
+    const btns = document.querySelectorAll('#more-btn');
+    var menus = document.querySelectorAll('.more-menu');
     var visible = false;
-
     function showMenu(e) {
         e.preventDefault();
-        if (!visible) {
-            visible = true;
-            el.classList.add('show-more-menu');
-            menu.setAttribute('aria-hidden', false);
+        console.log(e);
+        if (e.target.parentElement.className === 'more') {
+            if (!visible) {
+                visible = true;
+                e.target.parentElement.classList.add('show-more-menu');
+                menus.forEach((menu) =>
+                    menu.setAttribute('aria-hidden', false)
+                );
+            }
         }
     }
     const editBtn = document.querySelector('.edit-btn');
     const deleteBtn = document.querySelector('.delete-btn');
 
     function hideMenu(e) {
-        if (btn.contains(e.target)) {
-            return;
+        for (btn of btns) {
+            if (btn.contains(e.target)) {
+                return;
+            }
         }
         if (visible) {
             visible = false;
-            el.classList.remove('show-more-menu');
-            menu.setAttribute('aria-hidden', true);
+            document
+                .querySelector('.show-more-menu')
+                .classList.remove('show-more-menu');
+            menus.forEach((menu) => menu.setAttribute('aria-hidden', true));
             // document.removeEventListener('mousedown', hideMenu);
         }
     }
@@ -42,5 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     hideMenu(e);
     // });
 
-    btn.addEventListener('click', showMenu, false);
+    btns.forEach((btn) => {
+        btn.addEventListener('click', showMenu, false);
+    });
 });
