@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     const songpostPost = document.querySelector('.songpost-post');
+    const moreMenuItems = document.querySelector('.more-menu-items');
     document
         .querySelector('.notes-form')
         .addEventListener('submit', async (e) => {
@@ -31,9 +32,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
         });
 
-    document
-        .querySelector('.more-menu-items')
-        .addEventListener('click', async (e) => {
+    if (moreMenuItems) {
+        moreMenuItems.addEventListener('click', async (e) => {
             e.preventDefault();
             const editButton = e.target;
             const data = await fetch(editButton.href, {
@@ -108,4 +108,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 }
             }
         });
+    }
 });

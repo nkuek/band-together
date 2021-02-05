@@ -454,8 +454,7 @@ right: 60px;
 
 /* More Button / Dropdown Menu */
 
-.more-btn,
-.more-menu-btn {
+.more-btn{
   background: none;
   border: 0 none;
   line-height: normal;
@@ -466,6 +465,7 @@ right: 60px;
   text-align: left;
   outline: none;
   cursor: pointer;
+  position: absolute;
 }
 
 .more-dot {
@@ -542,23 +542,11 @@ right: 60px;
   display: block;
 }
 
-.more-menu-btn {
-  min-width: 100%;
-  color: #66757f;
-  cursor: pointer;
-  display: block;
-  font-size: 13px;
-  line-height: 18px;
-  padding: 5px 20px;
-  position: relative;
-  white-space: nowrap;
-}
-
 .more-menu-item:hover {
   background-color: #489fe5;
 }
 
-.more-menu-item:hover .more-menu-btn {
+.more-menu-item:hove{
   color: #fff;
 }
 

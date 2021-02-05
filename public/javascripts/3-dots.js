@@ -3,17 +3,15 @@ window.addEventListener('DOMContentLoaded', () => {
     const btns = document.querySelectorAll('#more-btn');
     var menus = document.querySelectorAll('.more-menu');
     var visible = false;
+
     function showMenu(e) {
         e.preventDefault();
-        console.log(e);
-        if (e.target.parentElement.className === 'more') {
-            if (!visible) {
-                visible = true;
-                e.target.parentElement.classList.add('show-more-menu');
-                menus.forEach((menu) =>
-                    menu.setAttribute('aria-hidden', false)
-                );
-            }
+
+        if (!visible) {
+            visible = true;
+
+            e.target.parentElement.classList.add('show-more-menu');
+            menus.forEach((menu) => menu.setAttribute('aria-hidden', false));
         }
     }
     const editBtn = document.querySelector('.edit-btn');
