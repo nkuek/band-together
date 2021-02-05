@@ -462,9 +462,7 @@ right: 60px;
   border: 0 none;
   line-height: normal;
   overflow: visible;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+
   width: 100%;
   text-align: left;
   outline: none;
