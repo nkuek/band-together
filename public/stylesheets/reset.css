@@ -594,11 +594,11 @@ h1 {
   color: red;
   list-style: none;
   padding: 5px;
-
+}
  /* SEARCH RESULT PAGE */
-.search-result {
+ .search-result {
   text-align: center;
   color: #C5C6C7;
   font-size: 30px;
   margin-top: 20px;
-
+ }
