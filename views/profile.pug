@@ -2,8 +2,10 @@ extends layout
 
 block content
 
-    h1(class="profile-heading") Welcome, #{user.username}
+    h1(class="profile-heading") Welcome to #{userProfile.username}'s profile!
+    hr(class="profile-separator")
     if userProfile.SongPosts.length > 0
+        h2(class="profile-heading") #{userProfile.username}'s Song Posts:
         each post in userProfile.SongPosts
             div(class='home-posts')
                 a(href=`/songposts/${post.id}` class='home-links')

@@ -563,6 +563,11 @@ right: 60px;
   color: rgb(114, 114, 114);
 }
 
+.profile-separator {
+  width: 500px;
+
+}
+
 /* EDIT AND DELETE FOR THE NOTES POSTED BY OTHER USERS */
 .note-edit {
   position: relative;
