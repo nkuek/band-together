@@ -65,8 +65,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const { songPostNote } = await data.json();
                 const parent = editButton.parentElement
                 const oldText = JSON.parse(JSON.stringify(parent.innerHTML))
+                const htmlElements = e.target.parentElement.querySelectorAll('a')
+                let htmlString=''
+                for(let i = 0; i < 2; i++){
+                    htmlString+=htmlElements[i].outerHTML
+                }
+
+                console.log(htmlString)
+                console.log(e.target.parentElement.querySelectorAll('a')[1].outerHTML)
                 editButton.parentElement.innerHTML = ""
-                console.log(oldText)
                 const textArea = document.createElement('textarea')
                 textArea.value = songPostNote.body
                 const update = document.createElement("a");
@@ -97,9 +104,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             }
                         );
                         parent.innerHTML = oldText;
-                        console.log(parent.textContent, parent.value)
                         parent.value = '';
-                        parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}`
+                        parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}${htmlString}`
 
                     }
                 })
