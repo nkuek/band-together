@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             const noteText = formData.get('postComment');
             try {
                 const res = await fetch(
-                    `http://localhost:8080/api/songposts/${songpostPost.id}/notes`,
+                    `/api/songposts/${songpostPost.id}/notes`,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -26,35 +26,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 newNote.innerHTML = `${username}: ${note.body}`;
                 notesContainer.appendChild(newNote);
                 document.querySelector('.noteText').value = '';
-                document.getElementById('no-comment').innerHTML = '';
             } catch (e) {
                 console.error(e);
             }
         });
 
-
-    document.querySelector('.songpost-note').addEventListener('click', async (e) => {
-        e.preventDefault();
-        const editButton = e.target;
-        if (e.target.className === 'note-delete') {
-            const deleteButton = e.target
-            try {
-                const res = await fetch(
-                    deleteButton.href,
-                    {
+    document
+        .querySelector('.songpost-note')
+        .addEventListener('click', async (e) => {
+            e.preventDefault();
+            const editButton = e.target;
+            if (e.target.className === 'note-delete') {
+                const deleteButton = e.target;
+                try {
+                    const res = await fetch(deleteButton.href, {
                         method: 'DELETE',
-                        headers: { 'Content-Type': 'application/json' }
-                    }
-                );
-                deleteButton.parentElement.innerHTML = ""
-            } catch (e) {
-                console.error(e);
+                        headers: { 'Content-Type': 'application/json' },
+                    });
+                    deleteButton.parentElement.innerHTML = '';
+                } catch (e) {
+                    console.error(e);
+                }
             }
-        }
-        if (e.target.className === 'note-edit') {
-
-            try {
-
+            if (e.target.className === 'note-edit') {
+                try {
                 const data = await fetch(
                     editButton.href,
                     {
@@ -65,8 +60,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const { songPostNote } = await data.json();
                 const parent = editButton.parentElement
                 const oldText = JSON.parse(JSON.stringify(parent.innerHTML))
+                const htmlElements = e.target.parentElement.querySelectorAll('a')
+                let htmlString=''
+                for(let i = 0; i < 2; i++){
+                    htmlString+=htmlElements[i].outerHTML
+                }
                 editButton.parentElement.innerHTML = ""
-                console.log(oldText)
                 const textArea = document.createElement('textarea')
                 textArea.value = songPostNote.body
                 const update = document.createElement("a");
@@ -97,17 +96,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             }
                         );
                         parent.innerHTML = oldText;
-                        console.log(parent.textContent, parent.value)
                         parent.value = '';
-                        parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}`
-
+                        parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}${htmlString}`
                     }
                 })
-
-            } catch (e) {
-                console.error(e);
+                } catch (e) {
+                    console.error(e);
+                }
             }
-        }
-
-    });
+        });
 });

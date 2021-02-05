@@ -59,9 +59,8 @@ router.put(
             parseInt(req.params.noteid, 10)
         );
         if (songPostNote) {
-            await songPostNote.update({
-
-            });
+            songPostNote.body = req.body.body
+            songPostNote.save()
             res.json({
                 songPostNote
             });
