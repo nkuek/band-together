@@ -5,17 +5,24 @@ html
         title="Band-Together"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    nav(class='navbar')
-      a(class='navbar-home' href='/') Band Together
-      ul
+    nav
+      ul(class='container')
+        li 
+          a(class='navbar-home' href='/') Band Together
+        li 
+          form(action="/")
+            input(type="text" placeholder="Search..." name="search")
+            button(type="submit" class="search-button") Search
         li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') + Create Song Post
-      if locals.authenticated
-        span(class='login-logout')
-          a(class='user-profile' href=`/users/${user.username}/`) #{user.username}! |
-          form(class='logout-form' action='/users/logout' method='post')
-            button(class='logout-button' type='submit')  Logout
-      else
-        span(class='login-logout')
-          a(class='user-login' href='/users/login') Login |
-          a(class='user-register' href='/users/register')  Register
+        if locals.authenticated
+          li
+            span(class='login-logout')
+              a(class='user-profile' href=`/users/${user.username}/`) #{user.username}! |
+              form(class='logout-form' action='/users/logout' method='post')
+                button(class='logout-button' type='submit')  Logout
+        else
+          li
+            span(class='login-logout')
+              a(class='user-login' href='/users/login') Login |
+              a(class='user-register' href='/users/register')  Register
   block content

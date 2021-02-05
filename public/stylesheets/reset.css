@@ -37,12 +37,29 @@ body, header, nav {
   font-weight: normal;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 2rem;
 }
 
+
+/* MINHAJ NAVBAR style setup */
+.container {
+  display: flex;
+}
+
+
+li {
+  display: inline;
+}
+
 /* Navbar style setup */
-.navbar {
+/* .navbar {
   padding: 20px 0 20px 0;
   background-color: #0B0C10;
   border-bottom: #C5C6C7 solid 1px;
@@ -112,7 +129,7 @@ right: 60px;
   background-color: #66FCF1;
   cursor: pointer;
   color: black;
-}
+} */
 
 /* Home page styling */
 #recent-dis {
@@ -170,6 +187,11 @@ right: 60px;
   border-radius: 10px;
   padding: 20px;
 }
+
+/* .search-container {
+  position: absolute;
+  left: 200px;
+} */
 
 /* Register styling */
 .register-form {
