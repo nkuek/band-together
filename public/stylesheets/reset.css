@@ -242,7 +242,7 @@ right: 60px;
   text-align: center;
   color: #C5C6C7;
   font-size: 30px;
-  margin-top: 20px;
+  margin: 30px 0 30px 0;
 }
 .upvote {
   float: right;
@@ -251,6 +251,7 @@ right: 60px;
   top: 15px;
   border: solid 1px #C5C6C7;
   padding: 10px;
+  color: white;
 }
 .upvote:hover {
   background-color: #27282e;
@@ -275,6 +276,9 @@ right: 60px;
 }
 .home-posts h2 p {
   font-size: 12px;
+  /* color: #C5C6C7; */
+}
+#song-info {
   color: #C5C6C7;
 }
 .home-links {
@@ -370,11 +374,11 @@ right: 60px;
   padding-bottom: 20px;
 }
 .all-posts {
-  padding: 10px;
+  padding: 20px;
 }
-.songpost-post p {
+/* .songpost-post p {
   padding: 10px;
-}
+} */
 .all-posts:hover {
   color: #818699;
 }
@@ -400,17 +404,19 @@ right: 60px;
   font-size: 13px;
 }
 /* Delete and edit buttons */
-.delete-post {
-  /* float: right; */
-  display: inline;
+.edit-and-delete-for-songpost {
+  float: right;
   position: relative;
-  bottom: 30px;
-  left: 670px;
+  bottom: 34px;
+  right: 6px;
+}
+.delete-post {
+  display: inline;
   width: 110px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
 }
@@ -420,16 +426,12 @@ right: 60px;
 }
 .edit-post {
   display: inline;
-  position: relative;
-  bottom: 30px;
-  left: 450px;
   width: 90px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px 5px;
-  margin: 0 10px 0 10px;
 }
 .edit-post:hover {
   background-color: #45A29E;
@@ -541,169 +543,56 @@ right: 60px;
   border-radius: 10px 10px;
   background-color: #DFF0F0;
   margin-top: 8px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .create-buttons {
   padding: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* THE 3 DOTS */
-.dot-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+/* PROFILE PAGE */
+.profile-heading {
   text-align: center;
+  color: #C5C6C7;
+  margin: 30px auto 30px auto;
 }
-
-.more-menu {
-  width: 100px;
-}
-
-/* More Button / Dropdown Menu */
-
-.more-btn,
-.more-menu-btn {
-  background: none;
-  border: 0 none;
-  line-height: normal;
-  overflow: visible;
-
-  width: 100%;
-  text-align: left;
-  outline: none;
-  cursor: pointer;
-}
-
-.more-dot {
-  background-color: #aab8c2;
-  margin: 0 auto;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 1px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-}
-
-.more-menu {
-  position: absolute;
-  top: 100%;
-  z-index: 900;
-  float: left;
-  padding: 10px 0;
-  margin-top: 9px;
-  background-color: #fff;
-  border: 1px solid #ccd8e0;
-  border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-  opacity: 0;
-  transform: translate(0, 15px) scale(.95);
-  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-  pointer-events: none;
-}
-
-.more-menu-caret {
-  /* position: absolute;
-  top: -10px;
-  left: 12px;
-  width: 18px;
-  height: 10px;
-  float: left; */
-  overflow: hidden;
-}
-
-.more-menu-outer,
-.more-menu-inner {
-  position: absolute;
-  display: inline-block;
-  margin-left: -1px;
-  font-size: 0;
-  line-height: 1;
-}
-
-.more-menu-outer {
-  border-bottom: 10px solid #c1d0da;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  height: auto;
-  left: 0;
-  top: 0;
-  width: auto;
-}
-
-.more-menu-inner {
-  top: 1px;
-  left: 1px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid #fff;
-}
-
-.more-menu-items {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-.more-menu-item {
-  display: block;
-}
-
-.more-menu-btn {
-  min-width: 100%;
-  color: #66757f;
-  cursor: pointer;
-  display: block;
-  font-size: 13px;
-  line-height: 18px;
-  padding: 5px 20px;
+.create-at {
+  float: right;
   position: relative;
-  white-space: nowrap;
+  bottom: 15px;
+  left: 15px;
+  color: rgb(114, 114, 114);
 }
 
-.more-menu-item:hover {
-  background-color: #489fe5;
+.profile-separator {
+  width: 500px;
+
 }
 
-.more-menu-item:hover .more-menu-btn {
-  color: #fff;
+/* EDIT AND DELETE FOR THE NOTES POSTED BY OTHER USERS */
+.note-edit {
+  position: relative;
+  top: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 2px;
+  border-radius: 5px 5px;
+  margin: 0 6px 0 6px;
+  /* margin-top: 10px; */
 }
-
-.more-btn:hover .more-dot,
-.show-more-menu .more-dot {
-  background-color: #516471;
+.note-delete {
+  position: relative;
+  top: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 2px;
+  border-radius: 5px 5px;
+  margin: 0 6px 0 6px;
 }
-
-.show-more-menu .more-menu {
-  opacity: 1;
-  transform: translate(0, 0) scale(1);
-  pointer-events: auto;
+.note-edit:hover {
+  background-color: #45A29E;
+}
+.note-delete:hover {
+  background-color: #45A29E;
 }
