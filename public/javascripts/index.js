@@ -4,6 +4,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .querySelector('.notes-form')
         .addEventListener('submit', async (e) => {
             e.preventDefault();
+            if(document.getElementById('no-comment')){
+                document.getElementById('no-comment').remove()
+            }
             const notesForm = document.querySelector('.notes-form');
             const formData = new FormData(notesForm);
             const noteText = formData.get('postComment');
@@ -18,7 +21,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 );
                 const { note, username } = await res.json();
                 const notesContainer = document.querySelector('.songpost-note');
-
                 const newNote = document.createElement('div');
                 newNote.className = 'notes-posted';
                 newNote.innerHTML = `${username}: ${note.body}`;
@@ -32,8 +34,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 deleteBtn.href = `/api/songposts/${note.songPostId}/notes/${note.id}/delete`;
                 newNote.appendChild(editBtn);
                 newNote.appendChild(deleteBtn);
-
-                // newNote.innerHTML = `<div class="notes-posted">${username}: ${note.body}</div><a href="/api/songposts/${note.songPostId}/notes/${note.id}/edit"> Edit <a href="/api/songposts/${note.songPostId}/notes/${note.id}/delete"> Delete`;
                 notesContainer.prepend(newNote);
                 document.querySelector('.noteText').value = '';
             } catch (e) {
