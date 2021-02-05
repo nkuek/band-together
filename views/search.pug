@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h3(id='recent-dis') Search Results
+        if users.length > 0
+            h2(class="search-result") Users:
+            each user in users
+                div(class='home-posts')
+                    a(href=`/users/${user.username}` class='home-links')
+                        h2= user.username
+        if searching.length > 0
+            h2(class="search-result") Song Posts:
+            each post in searching
+                div(class='home-posts')
+                    p(class="upvote") ⬆
+                    a(href=`/songposts/${post.id}` class='home-links')
+                        h2= post.postTitle
+                            p Song: #{post.songTitle} / Artist: #{post.artist}
+        else if users.length === 0 && searching.length === 0
+            h2(class="search-result") No results :(
