@@ -1,5 +1,6 @@
 extends layout
-
+append head 
+    script(src='/javascripts/demo.js')
 include utils
 
 block content
@@ -11,6 +12,7 @@ block content
             +textField('Password: ', 'password', null, 'password')
             div(class='login-register-buttons')
                 button(type='submit' class='login-register-submit') Login
+                a(href='/' class='login-register-cancel demo') Demo User Login
                 a(href='/' class='login-register-cancel') Cancel
         div
         p: a(href='/users/register' class="no-account") Don't have an account?
