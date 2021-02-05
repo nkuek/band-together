@@ -79,7 +79,7 @@ router.put(
             { include: db.User }
         );
         if (songPostNote) {
-            // console.log(req.body);
+            console.log(req.body);
             res.json({
                 songPostNote,
             });

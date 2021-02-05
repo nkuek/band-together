@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         hideMenu(e);
     });
 
-    editBtn.addEventListener('click', async (e) => {
-        try {
-            const data = await fetch(e.target.id);
-            const { songPostNote } = await data.json();
-            const textArea = document.createElement('textarea');
-            textArea.value = songPostNote.body;
-        } catch (e) {
-            console.error(e);
-        }
-        hideMenu(e);
-    });
+    // editBtn.addEventListener('click', async (e) => {
+    //     try {
+    //         const data = await fetch(editBtn.href);
+    //         const { songPostNote } = await data.json();
+    //         const textArea = document.createElement('textarea');
+    //         textArea.value = songPostNote.body;
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    //     hideMenu(e);
+    // });
 
     btn.addEventListener('click', showMenu, false);
 });

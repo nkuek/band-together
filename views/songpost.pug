@@ -45,11 +45,11 @@ block content
                                         div(class="more-menu-caret-inner")
                                     ul(class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true")
                                         li(class="more-menu-item" role="presentation")
-                                            button(type="button" class="more-menu-btn edit-btn" role="menuitem" id=`/api/songposts/${note.songPostId}/notes/${note.id}/edit`) Edit
-                                            //- a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit more-menu-btn" role="menuitem") Edit
+                                            //- button(type="button" class="more-menu-btn edit-btn" role="menuitem" id=`/api/songposts/${note.songPostId}/notes/${note.id}/edit`) Edit
+                                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit") Edit
                                         li(class="more-menu-item" role="presentation")
-                                            button(type="button" class="more-menu-btn delete-btn" role="menuitem" id=`/api/songposts/${note.songPostId}/notes/${note.id}/delete`) Delete
-                                            //- a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
+                                            //- button(type="button" class="more-menu-btn delete-btn" role="menuitem" id=`/api/songposts/${note.songPostId}/notes/${note.id}/delete`) Delete
+                                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
 
             else
                 h2(id='no-comment') There are no notes yet! Start a discussion!
