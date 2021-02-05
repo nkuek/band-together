@@ -54,6 +54,7 @@ const userValidation = [
             if (value !== req.body.password) {
                 throw new Error('Passwords must match');
             }
+            return true;
         }),
 ];
 router.post(
