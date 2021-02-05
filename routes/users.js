@@ -159,7 +159,7 @@ router.get(
             where: { username: req.params.username },
             include: db.SongPost,
         });
-        res.render('profile', { user });
+        res.render('profile', { userProfile: user });
     })
 );
 
