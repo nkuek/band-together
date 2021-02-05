@@ -374,11 +374,11 @@ right: 60px;
   padding-bottom: 20px;
 }
 .all-posts {
-  padding: 10px;
+  padding: 20px;
 }
-.songpost-post p {
+/* .songpost-post p {
   padding: 10px;
-}
+} */
 .all-posts:hover {
   color: #818699;
 }
@@ -404,17 +404,19 @@ right: 60px;
   font-size: 13px;
 }
 /* Delete and edit buttons */
-.delete-post {
-  /* float: right; */
-  display: inline;
+.edit-and-delete-for-songpost {
+  float: right;
   position: relative;
-  bottom: 30px;
-  left: 670px;
+  bottom: 34px;
+  right: 6px;
+}
+.delete-post {
+  display: inline;
   width: 110px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
 }
@@ -424,16 +426,12 @@ right: 60px;
 }
 .edit-post {
   display: inline;
-  position: relative;
-  bottom: 30px;
-  left: 450px;
   width: 90px;
   border: none white 1px;
   background-color: #3b3f4d;
   color: #DFF0F0;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px 5px;
-  margin: 0 10px 0 10px;
 }
 .edit-post:hover {
   background-color: #45A29E;
@@ -545,6 +543,7 @@ right: 60px;
   border-radius: 10px 10px;
   background-color: #DFF0F0;
   margin-top: 8px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .create-buttons {
   padding: 10px;
@@ -562,4 +561,33 @@ right: 60px;
   bottom: 15px;
   left: 15px;
   color: rgb(114, 114, 114);
+}
+
+/* EDIT AND DELETE FOR THE NOTES POSTED BY OTHER USERS */
+.note-edit {
+  position: relative;
+  top: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 2px;
+  border-radius: 5px 5px;
+  margin: 0 6px 0 6px;
+  /* margin-top: 10px; */
+}
+.note-delete {
+  position: relative;
+  top: 2px;
+  border: none white 1px;
+  background-color: #3b3f4d;
+  color: #DFF0F0;
+  padding: 2px;
+  border-radius: 5px 5px;
+  margin: 0 6px 0 6px;
+}
+.note-edit:hover {
+  background-color: #45A29E;
+}
+.note-delete:hover {
+  background-color: #45A29E;
 }

@@ -8,8 +8,9 @@ block content
     div(class='songpost-post' id=songPost.id)
         p: a(href='/' class='all-posts') <- See all other posts
         if locals.user.id === songPost.userId
-            p(class='delete-post'): a(href=`/songposts/${songPost.id}/delete`) Delete Post
-            p(class='edit-post'): a(href=`/songposts/${songPost.id}/edit`) Edit Post
+            div(class="edit-and-delete-for-songpost")
+                p(class='delete-post'): a(href=`/songposts/${songPost.id}/delete`) Delete Post
+                p(class='edit-post'): a(href=`/songposts/${songPost.id}/edit`) Edit Post
         else
 
         div(class='entire-post')
@@ -35,6 +36,6 @@ block content
                     div(class="notes-posted" id=`${note.id}`) #{note.User.username}: #{note.body}
                         if locals.user.id === note.userId
                             a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/edit` class="note-edit")= ' Edit '
-                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete") Delete
+                            a(href=`/api/songposts/${note.songPostId}/notes/${note.id}/delete` class="note-delete")= ' Delete '
             else
                 h2(id='no-comment') There are no notes yet! Start a discussion!
