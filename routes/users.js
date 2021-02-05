@@ -73,7 +73,10 @@ router.post(
             user.hashedPassword = hashedPassword;
             await user.save();
             loginUser(req, res, user);
-            req.session.save(res.redirect('/'));
+            return req.session.save((e) => {
+                console.log(e);
+                res.redirect('/');
+            });
         } else {
             const errors = validationErrors.array().map((error) => error.msg);
             res.render('register', {
@@ -118,7 +121,10 @@ router.post(
                 if (isValid) {
                     loginUser(req, res, user);
                     // console.log(req.session.auth);
-                    req.session.save(res.redirect('/'));
+                    return req.session.save((e) => {
+                        console.log(e);
+                        res.redirect('/');
+                    });
                 } else {
                     errors.push('Username password combination not valid');
                 }
@@ -139,8 +145,10 @@ router.post(
 
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
-    req.session.save(res.redirect('/'));
-    res.render('home');
+    return req.session.save((e) => {
+        console.log(e);
+        res.redirect('/');
+    });
 });
 
 router.get(

@@ -7,15 +7,15 @@ html
   body
     nav(class='navbar')
       a(class='navbar-home' href='/') Band Together
-        ul(class='navbar-items')
-          li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') Create Song Post
-        if locals.authenticated
-          span(class='login-logout')
-            a(class='user-profile' href=`/users/${user.username}/`) Welcome, #{user.username}! |
+      ul
+        li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') + Create Song Post
+      if locals.authenticated
+        span(class='login-logout')
+          a(class='user-profile' href=`/users/${user.username}/`) Welcome, #{user.username}! |
           form(class='logout-form' action='/users/logout' method='post')
             button(class='logout-button' type='submit')  Logout
-        else
-          span(class='login-logout')
-            a(class='user-login' href='/users/login') Login |
-            a(class='user-register' href='/users/register')  Register
-    block content
+      else
+        span(class='login-logout')
+          a(class='user-login' href='/users/login') Login |
+          a(class='user-register' href='/users/register')  Register
+  block content

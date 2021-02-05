@@ -86,7 +86,7 @@ router.get(
             res.redirect('/users/login');
         }
         const songPost = await db.SongPost.findByPk(req.params.id, {
-            include:db.User
+            include: db.User,
         });
         const notes = await db.Note.findAll({
             where: { songPostId: req.params.id },
@@ -115,10 +115,10 @@ router.get(
                 });
             }
             await songPost.destroy();
-            res.status(204);
-            res.redirect('/');
+            return res.redirect('/');
+        } else {
+            next(songPost);
         }
-        next(songPost);
     })
 );
 
@@ -127,10 +127,10 @@ router.get(
     requireAuth,
     csrfProtection,
     asyncHandler(async (req, res) => {
-        const postInformation = await db.SongPost.findByPk(req.params.id);
+        const post = await db.SongPost.findByPk(req.params.id);
 
         res.render('songpost-edit', {
-            postInformation,
+            post,
             csrfToken: req.csrfToken(),
         });
     })
