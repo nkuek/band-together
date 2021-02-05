@@ -596,3 +596,14 @@ right: 60px;
 .note-delete:hover {
   background-color: #45A29E;
 }
+
+/* ERROR HANDLING */
+.alert p{
+  text-align: center;
+  border-bottom: 1px solid #DFF0F0;
+}
+.alert li {
+  color: red;
+  list-style: none;
+  padding: 5px;
+}
