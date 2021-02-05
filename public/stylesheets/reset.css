@@ -707,3 +707,10 @@ right: 60px;
   transform: translate(0, 0) scale(1);
   pointer-events: auto;
 }
+
+.search-result {
+  text-align: center;
+  color: #C5C6C7;
+  font-size: 30px;
+  margin-top: 20px;
+}
