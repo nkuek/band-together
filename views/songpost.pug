@@ -26,7 +26,7 @@ block content
             form(class='notes-form' id=songPost.id)
                 input(type="hidden" name="_csrf" value=csrfToken)
                 label(for="postComment") Post Notes
-                textarea(class="noteText" name="postComment", cols="40", rows="10" value=body)
+                textarea(class="noteText" name="postComment", cols="40", rows="5" value=body)
                 div(class='songpost-note-submit')
                     button(type='submit' class='create-post') Post
                     a(href='/' class='create-cancel') Cancel
