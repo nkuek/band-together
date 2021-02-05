@@ -1,5 +1,12 @@
 extends layout
 
 block content
-    h1= userProfile.username
-        div(class='all-posted-posts')
+
+    h1(class="profile-heading") Welcome, #{user.username}
+        each post in songPosts
+            div(class='home-posts')
+                a(href=`/songposts/${post.id}` class='home-links')
+                    h2= post.postTitle
+                        p Song: #{post.songTitle} / Artist: #{post.artist}
+                        p= songPost.createAt
+

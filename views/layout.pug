@@ -7,11 +7,18 @@ html
   body
     nav(class='navbar')
       a(class='navbar-home' href='/') Band Together
+      div(class="search-container")
+        form(action="/")
+          input(type="text" placeholder="Search.." name='search')
+          button(type="submit" class="search-button")
+            img(src="/Magnify-glass.png" class="to-big")
       ul
         li(class='navbar-elements'): a(class='nav-link' href='/songposts/new') + Create Song Post
       if locals.authenticated
         span(class='login-logout')
-          a(class='user-profile' href=`/users/${locals.user.username}/`) Welcome, #{locals.user.username}! |
+        
+          a(class='user-profile' href=`/users/${locals.user.username}/`) #{locals.user.username} |
+
           form(class='logout-form' action='/users/logout' method='post')
             button(class='logout-button' type='submit')  Logout
       else
