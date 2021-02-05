@@ -98,7 +98,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         parent.innerHTML = oldText;
                         parent.value = '';
                         parent.innerHTML = `${songPostNote.User.username}: ${textArea.value}${htmlString}`
-
                     }
                 })
                 } catch (e) {
