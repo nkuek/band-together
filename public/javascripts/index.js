@@ -26,7 +26,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 newNote.innerHTML = `${username}: ${note.body}`;
                 notesContainer.appendChild(newNote);
                 document.querySelector('.noteText').value = '';
-                document.getElementById('no-comment').innerHTML = '';
             } catch (e) {
                 console.error(e);
             }
