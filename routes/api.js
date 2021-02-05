@@ -42,11 +42,10 @@ router.delete(
         if (songPostNote) {
             await songPostNote.destroy();
             res.json({
-                songPostNote
+                songPostNote,
             });
-        }
-        else {
-            next(songPostNote)
+        } else {
+            next(songPostNote);
         }
     })
 );
@@ -59,15 +58,13 @@ router.put(
             parseInt(req.params.noteid, 10)
         );
         if (songPostNote) {
-            await songPostNote.update({
-
-            });
+            songPostNote.body = req.body.body;
+            songPostNote.save();
             res.json({
-                songPostNote
+                songPostNote,
             });
-        }
-        else {
-            next(songPostNote)
+        } else {
+            next(songPostNote);
         }
     })
 );
@@ -78,15 +75,14 @@ router.get(
     asyncHandler(async (req, res, next) => {
         const songPostNote = await db.Note.findByPk(
             parseInt(req.params.noteid, 10),
-            {include: db.User}
+            { include: db.User }
         );
         if (songPostNote) {
             res.json({
-                songPostNote
+                songPostNote,
             });
-        }
-        else {
-            next(songPostNote)
+        } else {
+            next(songPostNote);
         }
     })
 );
