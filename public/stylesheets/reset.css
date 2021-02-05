@@ -21,6 +21,10 @@ body {
   }
   .logout-button {
     font-size: 12px;
+    padding: 3px;
+    position: relative;
+    bottom: 10px;
+    left: -2px;
   }
   .nav-link {
     font-size: 12px;
@@ -37,6 +41,25 @@ body {
   .songpost-note-show {
     width: 90%;
   }
+  .search-container {
+    position: absolute;
+    top: 10px;
+    left: 9.5rem;
+  }
+  .search-container input[type=text] {
+    padding: 4px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .search-button {
+    padding: 4px 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 12px;
+  }
+  .to-big {
+    width: 11px;
+  }
 }
 /* Large screens */
 @media only screen and (min-width: 600px) {
@@ -46,10 +69,15 @@ body {
   }
   .logout-button {
     font-size: 15px;
+    padding: 5px;
+    position: relative;
+    bottom: 13px;
+    left: 3px;
   }
   .user-profile {
     position: relative;
     right: 60px;
+    top: 2px;
   }
   .navbar-home {
     font-size: 20px;
@@ -59,6 +87,25 @@ body {
   }
   .songpost-note-show {
     max-width: 800px;
+  }
+  .search-container {
+    position: absolute;
+    top: 10px;
+    left: 12rem;
+  }
+  .search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+  .search-button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 15px;
+  }
+  .to-big {
+    width: 12px;
   }
 }
 
@@ -123,10 +170,11 @@ h1 {
   padding-top: 10px;
 }
 .logout-button {
-  position: relative;
-  bottom: 10px;
-  left: 5px;
+  /* position: relative;
+  bottom: 13px;
+  left: 3px; */
   color: #C5C6C7;
+  /* padding: 5px; */
   background-color: #3b3f4d;
   border-radius: 4px;
   /* font-size: 15px; */
@@ -170,6 +218,23 @@ right: 60px;
   background-color: #66FCF1;
   cursor: pointer;
   color: black;
+}
+/* SEARCH BAR */
+.search-container input[type=text] {
+  border: none;
+  background-color: #C5C6C7;
+  border-radius: 5px 0 0 5px;
+}
+.search-button {
+  background-color:#ffffff;
+  /* color: #C5C6C7; */
+  border: none;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+.search-button:hover {
+  background-color: #66FCF1;
+  /* color: black; */
 }
 
 /* Home page styling */
