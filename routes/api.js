@@ -42,50 +42,49 @@ router.delete(
         if (songPostNote) {
             await songPostNote.destroy();
             res.json({
-                songPostNote
+                songPostNote,
             });
-        }
-        else {
-            next(songPostNote)
+        } else {
+            next(songPostNote);
         }
     })
 );
+
+// router.put(
+//     '/songposts/:id/notes/:noteid/edit',
+//     requireAuth,
+//     asyncHandler(async (req, res, next) => {
+//         const songPostNote = await db.Note.findByPk(
+//             parseInt(req.params.noteid, 10)
+//         );
+//         if (songPostNote) {
+//             songPostNote.body = req.body.body
+//             songPostNote.save()
+//             res.json({
+//                 songPostNote
+//             });
+//         }
+//         else {
+//             next(songPostNote)
+//         }
+//     })
+// );
 
 router.put(
     '/songposts/:id/notes/:noteid/edit',
     requireAuth,
     asyncHandler(async (req, res, next) => {
         const songPostNote = await db.Note.findByPk(
-            parseInt(req.params.noteid, 10)
-        );
-        if (songPostNote) {
-            songPostNote.body = req.body.body
-            songPostNote.save()
-            res.json({
-                songPostNote
-            });
-        }
-        else {
-            next(songPostNote)
-        }
-    })
-);
-
-router.get(
-    '/songposts/:id/notes/:noteid/edit',
-    requireAuth,
-    asyncHandler(async (req, res, next) => {
-        const songPostNote = await db.Note.findByPk(
             parseInt(req.params.noteid, 10),
-            {include: db.User}
+            { include: db.User }
         );
         if (songPostNote) {
+            // console.log(req.body);
             res.json({
-                songPostNote
+                songPostNote,
             });
-        }
-        else {
-            next(songPostNote)
+        } else {
+            next(songPostNote);
         }
     })
 );

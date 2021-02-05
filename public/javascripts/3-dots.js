@@ -32,11 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     editBtn.addEventListener('click', async (e) => {
         try {
-            const data = await fetch(e.target.id, {
-                method: 'PUT',
-            });
-            console.log(data);
+            const data = await fetch(e.target.id);
             const { songPostNote } = await data.json();
+            const textArea = document.createElement('textarea');
+            textArea.value = songPostNote.body;
         } catch (e) {
             console.error(e);
         }
