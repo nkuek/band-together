@@ -383,7 +383,13 @@ right: 60px;
   margin-bottom: 10px;
 }
 .notes-container {
-  background-color: #14161a;
+  margin-bottom: 10px;
+}
+.notes-form {
+  text-align: center;
+}
+.notes-form label {
+  font-size: 20px;
 }
 .notes-posted {
   padding-top: 10px;
