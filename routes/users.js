@@ -159,6 +159,7 @@ router.get(
         const user = await db.User.findOne({
             where: { username: req.params.username },
             include: db.SongPost,
+            order: [[db.SongPost, 'createdAt', 'DESC']],
         });
         // res.json(user)
         res.render('profile', { userProfile: user });
