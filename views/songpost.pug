@@ -18,6 +18,7 @@ block content
                 a(class="user-link" href=`/users/${songPost.User.username}`) Posted By: #{songPost.User.username}
             h1= songPost.postTitle
                 h2 Song: #{songPost.songTitle} / Artist: #{songPost.artist} / Album: #{songPost.album} / Genre: #{songPost.genre}
+                div(id='song-link-div')
                 a(href=songPost.songLink class="link-to-song") Link To Song
                 h5(class='songpost-body')= songPost.body
     div(class='songpost-note-show')

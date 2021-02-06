@@ -1,11 +1,20 @@
 window.addEventListener('DOMContentLoaded', (event) => {
+    const songlink = document.querySelector('.link-to-song')
+    if(songlink.href.includes('embed')){
+        console.log(songlink)
+        const newiframe = document.createElement('iframe')
+        newiframe.src=songlink
+        const div = document.getElementById('song-link-div')
+        div.appendChild(newiframe)
+        songlink.remove();
+    }
     const songpostPost = document.querySelector('.songpost-post');
     document
         .querySelector('.notes-form')
         .addEventListener('submit', async (e) => {
             e.preventDefault();
             if(document.getElementById('no-comment')){
-                document.getElementById('no-comment').remove()
+                document.getElementById()
             }
             const notesForm = document.querySelector('.notes-form');
             const formData = new FormData(notesForm);
