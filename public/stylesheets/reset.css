@@ -15,7 +15,6 @@ body {
   }
   .user-profile {
     font-size: 12px;
-    /* padding-left: 20px; */
     position: relative;
     right: 50px;
   }
@@ -64,9 +63,8 @@ body {
 /* Large screens */
 @media only screen and (min-width: 600px) {
   .home-posts {
-    width: 50%;
-    word-wrap:break-word
-    /* max-width: 600px; */
+    word-wrap:break-word;
+    max-width: 600px;
   }
   .logout-button {
     font-size: 15px;
@@ -136,7 +134,6 @@ h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
 body, header, nav {
   font-size: 1rem;
   color: inherit;
-  /* background-color: transparent; */
   margin: 0;
   padding: 0;
   outline: 0;
@@ -218,14 +215,12 @@ h1 {
 }
 .search-button {
   background-color:#ffffff;
-  /* color: #C5C6C7; */
   border: none;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
 }
 .search-button:hover {
   background-color: #66FCF1;
-  /* color: black; */
 }
 
 /* Home page styling */
@@ -238,7 +233,7 @@ h1 {
 .upvote {
   float: right;
   position: relative;
-  right: 30px;
+  right: 20px;
   top: 15px;
   border: solid 1px #C5C6C7;
   padding: 10px;
@@ -254,7 +249,8 @@ h1 {
   box-shadow: 5px 10px 8px #14161a;
   text-align: left;
   margin: 20px auto 20px auto;
-  /* width: 75%; */
+  text-overflow: ellipsis;
+  height: auto;
 }
 .home-posts:hover {
   background-color: #3b3f4d;
@@ -262,12 +258,12 @@ h1 {
 .home-posts h2 {
   color: #66FCF1;
   font-size: 24px;
-  height: 100px;
+  height: auto;
   padding: 20px;
+  text-overflow: ellipsis;
 }
 .home-posts h2 p {
   font-size: 12px;
-  /* color: #C5C6C7; */
 }
 #song-info {
   color: #C5C6C7;
