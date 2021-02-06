@@ -64,8 +64,9 @@ body {
 /* Large screens */
 @media only screen and (min-width: 600px) {
   .home-posts {
-    /* width: 50%; */
-    max-width: 600px;
+    width: 50%;
+    word-wrap:break-word
+    /* max-width: 600px; */
   }
   .logout-button {
     font-size: 15px;
@@ -430,6 +431,7 @@ h1 {
   margin: 0px 10px 10px 10px;
   text-align: left;
   padding: 20px;
+  word-wrap:break-word;
 }
 .entire-post h1 {
   color: #66FCF1;
