@@ -7,7 +7,6 @@ const { requireAuth } = require('../auth');
 /* GET home page. */
 router.get(
     '/',
-    csrfProtection,
     asyncHandler(async (req, res, next) => {
         const songPosts = await db.SongPost.findAll({
             order: [['createdAt', 'DESC']],
@@ -16,12 +15,11 @@ router.get(
         res.render('home', {
             title: 'Welcome to Band-Together',
             songPosts,
-            csrfToken: req.csrfToken(),
         });
     })
 );
 
-router.post('/', csrfProtection, requireAuth, (req, res) => {
+router.post('/', requireAuth, (req, res) => {
     console.log(req.body);
     const { search } = req.body;
     res.redirect(`/search/${search}`);

@@ -9,7 +9,7 @@ html
       a(class='navbar-home' href='/') Band Together
       div(class="search-container")
         form(action="/" method="post")
-          input(type="hidden" name="_csrf" value=csrfToken)
+          input(type="hidden" name="_csrf")
           input(type="text" placeholder="Search.." name='search' class="search-input")
           button(type="submit" class="search-button")
             img(src="/Magnify-glass.png" class="to-big")
