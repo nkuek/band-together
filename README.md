@@ -15,7 +15,7 @@
   - Run `npx dotenv sequelize db:seed:all`
 - Run `npm start`
 - Navigate to your localhost:8080
-- If you don't want to create a user, click the login button in the navigation bar and click on the demo user button
+- If you don't want to register, click the login button in the navigation bar and click on the demo user button
 - Profit
 
 ## Technologies Used
