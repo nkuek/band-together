@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .addEventListener('submit', async (e) => {
             e.preventDefault();
             if(document.getElementById('no-comment')){
-                document.getElementById()
+                document.getElementById('no-comment').remove()
             }
             const notesForm = document.querySelector('.notes-form');
             const formData = new FormData(notesForm);
