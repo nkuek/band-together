@@ -12,3 +12,5 @@ block content
                     h2= post.postTitle
                         p(id="song-info") Song: #{post.songTitle} / Artist: #{post.artist}
                         p(class="create-at") #{post.createdAt}
+    else
+        h2(class="profile-heading") #{userProfile.username} hasn't made any posts yet! :(
