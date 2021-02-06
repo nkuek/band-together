@@ -233,11 +233,13 @@ h1 {
 .upvote {
   float: right;
   position: relative;
-  right: 20px;
+  right: 15px;
   top: 15px;
   border: solid 1px #C5C6C7;
   padding: 10px;
   color: white;
+  margin: 16px 0 0 0;
+
 }
 .upvote:hover {
   background-color: #27282e;
