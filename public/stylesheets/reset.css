@@ -249,8 +249,6 @@ h1 {
   box-shadow: 5px 10px 8px #14161a;
   text-align: left;
   margin: 20px auto 20px auto;
-  text-overflow: ellipsis;
-  height: auto;
 }
 .home-posts:hover {
   background-color: #3b3f4d;
