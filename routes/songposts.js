@@ -1,7 +1,8 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { asyncHandler, csrfProtection } = require('./utils');
+const { asyncHandler, csrfProtection, timeSince } = require('./utils');
 const { requireAuth } = require('../auth');
+const moment = require('moment');
 const db = require('../db/models/');
 const router = express.Router();
 
@@ -64,6 +65,7 @@ router.post(
             body,
             userId: req.session.auth.userId,
         });
+
         if (validationErrors.isEmpty()) {
             await songPost.save();
             res.redirect(`/songposts/${songPost.id}`);
@@ -93,6 +95,7 @@ router.get(
             order: [['createdAt', 'DESC']],
             include: db.User,
         });
+        songPost.postedDate = moment(songPost.createdAt).fromNow();
         res.render('songpost', { songPost, notes, csrfToken: req.csrfToken() });
     })
 );

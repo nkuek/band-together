@@ -15,7 +15,7 @@ block content
 
         div(class='entire-post')
             div(class="moving-the-name")
-                a(class="user-link" href=`/users/${songPost.User.username}`) Posted By: #{songPost.User.username}
+                a(class="user-link" href=`/users/${songPost.User.username}`) Posted by #{songPost.User.username} #{songPost.postedDate}
             h1= songPost.postTitle
                 h2 Song: #{songPost.songTitle} / Artist: #{songPost.artist} / Album: #{songPost.album} / Genre: #{songPost.genre}
                 div(id='song-link-div')
