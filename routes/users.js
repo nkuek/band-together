@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const moment = require('moment');
 const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection } = require('./utils');
 const { loginUser, logoutUser, requireAuth } = require('../auth');
@@ -159,7 +160,11 @@ router.get(
         const user = await db.User.findOne({
             where: { username: req.params.username },
             include: db.SongPost,
+            order: [[db.SongPost, 'createdAt', 'DESC']],
         });
+        user.SongPosts.forEach(
+            (post) => (post.postedDate = moment(post.createdAt).fromNow())
+        );
         // res.json(user)
         res.render('profile', { userProfile: user });
     })

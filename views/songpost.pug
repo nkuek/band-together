@@ -9,13 +9,13 @@ block content
         p: a(href='/' class='all-posts') <- See all other posts
         if locals.user.id === songPost.userId
             div(class="edit-and-delete-for-songpost")
-                p(class='delete-post'): a(href=`/songposts/${songPost.id}/delete`) Delete Post
-                p(class='edit-post'): a(href=`/songposts/${songPost.id}/edit`) Edit Post
+                p(class='edit-post'): a(style='font-size: .8em' href=`/songposts/${songPost.id}/edit`) Edit
+                p(class='delete-post'): a(style='font-size: .8em' href=`/songposts/${songPost.id}/delete`) Delete
         else
 
         div(class='entire-post')
             div(class="moving-the-name")
-                a(class="user-link" href=`/users/${songPost.User.username}`) Posted By: #{songPost.User.username}
+                a(class="user-link" href=`/users/${songPost.User.username}`) Posted by #{songPost.User.username} #{songPost.postedDate}
             h1= songPost.postTitle
                 h2 Song: #{songPost.songTitle} / Artist: #{songPost.artist} / Album: #{songPost.album} / Genre: #{songPost.genre}
                 div(id='song-link-div')
@@ -27,7 +27,7 @@ block content
             form(class='notes-form' id=songPost.id)
                 input(type="hidden" name="_csrf" value=csrfToken)
                 label(for="postComment") Post Notes
-                textarea(class="noteText" name="postComment", cols="40", rows="5" value=body)
+                textarea(class="noteText" name="postComment", cols="40", rows="5" placeholder='What are your thoughts?' value=body)
                 div(class='songpost-note-submit')
                     button(type='submit' class='create-post') Post
                     a(href='/' class='create-cancel') Cancel

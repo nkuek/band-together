@@ -4,7 +4,7 @@ block content
     h3(id='recent-dis') Recent Discussions
     each post in songPosts
         div(class='home-posts')
-            p(class="upvote") ⬆
             a(href=`/songposts/${post.id}` class='home-links')
                 h2= post.postTitle
                     p(id="song-info") Song: #{post.songTitle} / Artist: #{post.artist}
+                    p(class="create-at") Posted by #{post.User.username} #{post.postedDate}

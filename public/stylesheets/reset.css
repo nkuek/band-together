@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #1F2833;
+  background-color: #191b1c;
   overflow-x: hidden;
 }
 
@@ -15,7 +15,6 @@ body {
   }
   .user-profile {
     font-size: 12px;
-    /* padding-left: 20px; */
     position: relative;
     right: 50px;
   }
@@ -64,9 +63,8 @@ body {
 /* Large screens */
 @media only screen and (min-width: 600px) {
   .home-posts {
-    width: 50%;
-    word-wrap:break-word
-    /* max-width: 600px; */
+    word-wrap:break-word;
+    max-width: 600px;
   }
   .logout-button {
     font-size: 15px;
@@ -110,20 +108,6 @@ body {
   }
 }
 
-
-/* SCROLL BAR CAUSE WHY NOT */
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #66FCF1;
-}
-
 a {
   text-decoration: none;
 }
@@ -136,7 +120,6 @@ h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
 body, header, nav {
   font-size: 1rem;
   color: inherit;
-  /* background-color: transparent; */
   margin: 0;
   padding: 0;
   outline: 0;
@@ -150,11 +133,11 @@ h1 {
 /* Navbar style setup */
 .navbar {
   padding: 20px 0 20px 0;
-  background-color: #0B0C10;
-  border-bottom: #C5C6C7 solid 1px;
-  border-top: #C5C6C7 solid 1px;
+  background-color: #262a2b;
+  /* border-bottom: #C5C6C7 solid 1px; */
+  /* border-top: #C5C6C7 solid 1px; */
   box-shadow: 5px 10px 8px #14161a;
-  color: #C5C6C7;
+  color: #FFF;
 }
 .navbar-home {
   padding: 20px;
@@ -170,8 +153,8 @@ h1 {
   padding-top: 10px;
 }
 .logout-button {
-  color: #C5C6C7;
-  background-color: #3b3f4d;
+  color: #FFF;
+  background-color: #0081cb;
   border-radius: 4px;
   border: none;
 }
@@ -203,12 +186,11 @@ h1 {
   text-decoration: none;
 }
 .navbar-home:hover, .nav-link:hover, .user-login:hover, .user-register:hover, .user-profile:hover {
-  color: #66FCF1;
+  color: #fff;
 }
 .logout-button:hover {
-  background-color: #66FCF1;
+  background-color: #2e94d0;
   cursor: pointer;
-  color: black;
 }
 /* SEARCH BAR */
 .search-container input[type=text] {
@@ -218,56 +200,54 @@ h1 {
 }
 .search-button {
   background-color:#ffffff;
-  /* color: #C5C6C7; */
   border: none;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
 }
 .search-button:hover {
-  background-color: #66FCF1;
-  /* color: black; */
+  background-color: #fff;
 }
 
 /* Home page styling */
 #recent-dis {
   text-align: center;
-  color: #C5C6C7;
+  color: #FFF;
   font-size: 30px;
   margin: 30px 0 30px 0;
 }
 .upvote {
   float: right;
   position: relative;
-  right: 30px;
+  right: 15px;
   top: 15px;
   border: solid 1px #C5C6C7;
   padding: 10px;
   color: white;
+  margin: 16px 0 0 0;
+
 }
 .upvote:hover {
   background-color: #27282e;
   cursor: pointer;
 }
 .home-posts {
-  background-color: #0B0C10;
-  border: #C5C6C7 solid 1px;
+  background-color: #262a2b;
+  /* border: #C5C6C7 solid 1px; */
   box-shadow: 5px 10px 8px #14161a;
   text-align: left;
   margin: 20px auto 20px auto;
-  /* width: 75%; */
 }
 .home-posts:hover {
   background-color: #3b3f4d;
 }
 .home-posts h2 {
-  color: #66FCF1;
+  color: #fff;
   font-size: 24px;
-  height: 100px;
+  height: auto;
   padding: 20px;
 }
 .home-posts h2 p {
   font-size: 12px;
-  /* color: #C5C6C7; */
 }
 #song-info {
   color: #C5C6C7;
@@ -278,8 +258,7 @@ h1 {
 
 /* Login Styling */
 .login-form {
-  background-color: #0B0C10;
-  border: #C5C6C7 solid 1px;
+  background-color: #262a2b;
   box-shadow: 5px 10px 8px #14161a;
   color:  #C5C6C7;
   text-align: center;
@@ -310,7 +289,6 @@ h1 {
   border-style: none;
   margin-top: 6px;
   margin-bottom: 16px;
-  background-color: #DFF0F0;
   font-size: 20px;
   width: 100%;
 }
@@ -324,29 +302,33 @@ h1 {
   padding: 20px;
 }
 .login-register-submit {
-  background-color:   #66FCF1;
-  color: black;
+  background-color: #0081cb;
+  color: white;
   padding: 10px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
   border: none;
   font-size: 15px;
-  font-weight: bold;
 }
 .login-register-submit:hover {
-  background-color: #45A29E;
+  background-color: #2e94d0;
   cursor: pointer;
 }
+
+.cancel {
+
+}
+
 .login-register-cancel {
   border: none white 1px;
-  background-color: #3b3f4d;
-  color: #DFF0F0;
+  background-color: #0081cb;
+  color: #FFF;
   padding: 10px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
 }
 .login-register-cancel:hover {
-  background-color: #45A29E;
+  background-color: #2e94d0;
 }
 
 /* If not account styling */
@@ -356,13 +338,13 @@ h1 {
 
 /* Songpost Styling */
 .songpost-post {
-  background-color: #0B0C10;
-  border: #C5C6C7 solid 1px;
+  background-color: #262A2B;
   box-shadow: 5px 10px 8px #14161a;
   color: #DFF0F0;
   /* width: 800px; */
-  margin: 30px auto 30px auto;
-  padding-bottom: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px 0px;
 }
 .all-posts {
   padding: 20px;
@@ -378,9 +360,7 @@ h1 {
   color: #45A29E;
 }
 .songpost-body {
-  margin-top: 20px;
-  border-top: solid 1px;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 .moving-the-name {
   float: right;
@@ -402,39 +382,40 @@ h1 {
   display: inline;
   width: 110px;
   border: none white 1px;
-  background-color: #3b3f4d;
+  background-color: rgb(203, 41, 41);
   color: #DFF0F0;
-  padding: 7px;
+  padding: 5px 10px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
 }
 .delete-post:hover {
- background-color: #45A29E;
+ background-color: rgb(255, 75, 75);
  cursor: pointer;
 }
 .edit-post {
   display: inline;
   width: 90px;
   border: none white 1px;
-  background-color: #3b3f4d;
+  background-color: #0081cb;
   color: #DFF0F0;
-  padding: 7px;
+  padding: 5px 10px;
   border-radius: 5px 5px;
 }
 .edit-post:hover {
-  background-color: #45A29E;
+  background-color: #2e94d0;
   cursor: pointer;
 }
 /* Users songpost section */
 .entire-post {
-  background-color: #14161a ;
+  background-color: #262A2B ;
   margin: 0px 10px 10px 10px;
   text-align: left;
   padding: 20px;
   word-wrap:break-word;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8)
 }
 .entire-post h1 {
-  color: #66FCF1;
+  color: #fff;
 }
 .entire-post h2 {
   margin: 10px 0 10px 0;
@@ -449,7 +430,9 @@ h1 {
 .noteText {
   width: 90%;
   border-radius: 10px 10px;
-  background-color: #DFF0F0;
+  background-color: #262a2b;
+  color: white;
+  padding: 20px;
   margin-top: 8px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -458,8 +441,8 @@ h1 {
   padding: 20px;
 }
 .create-post {
-  background-color: #66FCF1;
-  color: black;
+  background-color: #0081cb;
+  color: white;
   padding: 10px;
   border-radius: 5px 5px;
   margin: 0 10px 0 10px;
@@ -468,7 +451,7 @@ h1 {
   font-weight: bold;
 }
 .create-post:hover {
-  background-color: #45A29E;
+  background-color: #2e94d0;
   cursor: pointer;
 }
 .create-cancel {
@@ -480,20 +463,19 @@ h1 {
   margin: 0 10px 0 10px;
 }
 .create-cancel:hover {
-  background-color: #45A29E;
+  background-color: #494c55;
 }
 /* Comments Shown */
 .songpost-note-show {
-  background-color: #0B0C10;
-  border: #C5C6C7 solid 1px;
+  background-color: #262A2B;
   box-shadow: 5px 10px 8px #14161a;
-  color: #DFF0F0;
+  color: #FFF;
   padding: 20px;
   margin: 0px auto 0px auto;
   /* width: 800px; */
 }
 #comments {
-  color: #66FCF1;
+  color: #fff;
   margin-bottom: 10px;
 }
 .notes-container {
@@ -562,7 +544,7 @@ h1 {
   position: relative;
   top: 2px;
   border: none white 1px;
-  background-color: #3b3f4d;
+  background-color: #0081cb;
   color: #DFF0F0;
   padding: 2px;
   border-radius: 5px 5px;
@@ -573,17 +555,17 @@ h1 {
   position: relative;
   top: 2px;
   border: none white 1px;
-  background-color: #3b3f4d;
+  background-color: rgb(203, 41, 41);
   color: #DFF0F0;
   padding: 2px;
   border-radius: 5px 5px;
   margin: 0 6px 0 6px;
 }
 .note-edit:hover {
-  background-color: #45A29E;
+  background-color: #2e94d0;
 }
 .note-delete:hover {
-  background-color: #45A29E;
+  background-color: rgb(255, 75, 75);
 }
 
 
